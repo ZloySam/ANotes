@@ -220,8 +220,14 @@
   .screen-cap { margin-top: 16px; text-align: center; }
   .screen-cap b { display: block; font-size: 14.5px; font-weight: 700; }
   .screen-cap span { display: block; font-size: 13px; color: var(--ink-muted); margin-top: 3px; }
-  @media (max-width: 860px) { .screens-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 520px) { .screens-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .screens-grid { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 520px) { .screens-grid { grid-template-columns: 1fr !important; } }
+
+  .showcase-banner { margin-top: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 26px; box-shadow: var(--shadow-sm); }
+  .showcase-scroll { overflow-x: auto; border-radius: 10px; }
+  .showcase-scroll img { display: block; width: 900px; max-width: none; height: auto; }
+  .showcase-cap { margin-top: 18px; font-size: 15px; color: var(--ink-muted); max-width: 70ch; }
+  .showcase-cap b { color: var(--ink); font-weight: 700; }
 
   /* ---------- icon showcase ---------- */
   .icon-showcase { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 30px; }
@@ -448,19 +454,22 @@
       <h2>What's actually on screen.</h2>
       <p>Real frames from the current build, not renders.</p>
     </div>
-    <div class="screens-grid">
+    <div class="screens-grid" style="grid-template-columns:repeat(3,1fr);">
       <div class="screen-card"><div class="glow" style="background:var(--blue)"></div>
         <div class="device-frame"><img src="screens/home-list-v2.png" alt="ANotes notes list"></div>
-        <div class="screen-cap"><b>Notes list</b><span>Folders and notes, newest first.</span></div></div>
-      <div class="screen-card"><div class="glow" style="background:var(--teal)"></div>
-        <div class="device-frame"><img src="screens/folder-v2.png" alt="A folder open, showing its notes"></div>
-        <div class="screen-cap"><b>Inside a folder</b><span>Nested, with a breadcrumb back up.</span></div></div>
-      <div class="screen-card"><div class="glow" style="background:var(--purple)"></div>
-        <div class="device-frame"><img src="screens/home-icon-v2.png" alt="The same notes list in a grid tile layout"></div>
-        <div class="screen-cap"><b>Grid view</b><span>The same list, switched to tiles.</span></div></div>
+        <div class="screen-cap"><b>Main screen</b><span>Folders and notes, newest first.</span></div></div>
       <div class="screen-card"><div class="glow" style="background:var(--coral)"></div>
-        <div class="device-frame"><img src="screens/home-avatar-menu.png" alt="The overflow menu, with Archive shown as coming later"></div>
-        <div class="screen-cap"><b>The overflow menu</b><span>Archive greyed out — "Later" means later.</span></div></div>
+        <div class="device-frame"><img src="screens/note-recording.png" alt="A note after recording, showing the original voice player"></div>
+        <div class="screen-cap"><b>After you record</b><span>Your original voice, kept and playable.</span></div></div>
+      <div class="screen-card"><div class="glow" style="background:var(--teal)"></div>
+        <div class="device-frame"><img src="screens/voice-settings.png" alt="Voice and speech settings, listing dictation and read-aloud engines"></div>
+        <div class="screen-cap"><b>Dictation &amp; voices</b><span>Every STT and TTS option, all offline.</span></div></div>
+    </div>
+
+    <div class="showcase-banner">
+      <div class="showcase-scroll"><img src="screens/dual-voice-showcase.png" alt="The play bar switching between read-aloud and your original recording, three states shown"></div>
+      <p class="showcase-cap"><b>One bar, two voices.</b> Tap to switch between what you said and what the app reads back — this is the mechanic that makes ANotes different from a plain note-taker.</p>
+    </div>
     </div>
 
   </div>
@@ -490,7 +499,7 @@
     </div>
     <div class="roadmap-layout">
       <div>
-        <p class="roadmap-lede">Summarising and working over your notes, running on the phone like everything else. <b>It's not in the app yet — the target is a few weeks out</b> — and the ground rules are already decided.</p>
+        <p class="roadmap-lede">Summarising a note, drafting a to-do list from it, setting a reminder — a local AI engine working over your notes, running on the phone like everything else. <b>It's not in the app yet — the target is a few weeks out</b> — and the ground rules are already decided.</p>
         <div class="principles">
           <div class="principle"><div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div><div><b>The original stays intact.</b>Every AI pass — a summary, a tag — is added next to your transcript, never in place of it.</div></div>
           <div class="principle"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><line x1="15" y1="15" x2="20" y2="20"/></svg></div><div><b>You set the scope.</b>One note, a selection, a folder, or a topic you search for. Nothing scans in the background.</div></div>
