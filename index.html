@@ -76,7 +76,7 @@
   }
   .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
 
-  section { padding-block: 92px; position: relative; }
+  section { padding-block: 60px; position: relative; }
   .section-head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; max-width: 680px; }
   .section-head h2 { font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -0.01em; }
   .section-head p { color: var(--ink-muted); font-size: 16.5px; }
@@ -285,6 +285,14 @@
     padding: 16px 28px; border-radius: 100px; box-shadow: 0 12px 30px -10px rgba(0,0,0,0.5);
   }
   .get-it-fine { margin-top: 16px; font-size: 13px; color: #8f87ac; }
+  .platform-row { display: flex; gap: 12px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
+  .platform-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); color: #e7e2f7;
+    font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px;
+  }
+  .platform-chip .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .platform-chip.muted { color: #a49cc0; font-weight: 500; background: rgba(255,255,255,0.04); }
 
   /* ---------- licence ---------- */
   .licence-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 30px 32px; box-shadow: var(--shadow-sm); }
@@ -317,7 +325,7 @@
       <h1 style="margin-top:18px;">Everything stays<br><span class="accent">on this phone.</span></h1>
       <p class="sub">A notebook that listens, and reads aloud. Speech-to-text, text-to-speech, storage and search — all running on the phone in your hand.</p>
       <div class="hero-ctas">
-        <span class="cta-badge">Not on Google Play <span class="sw">· yet</span></span>
+        <span class="cta-badge">Coming soon <span class="sw">· android first</span></span>
         <span class="cta-secondary">Used daily, <b>on one phone</b>, right now.</span>
       </div>
       <p class="hero-name-note"><b>The A is for AI.</b> That's the next thing being built, and it's not in the app today — everything on this page is the notebook it will sit on.</p>
@@ -508,7 +516,10 @@
     <div class="eyebrow" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.16); color:#cbc4e6;"><span class="dot" style="background:var(--coral)"></span>availability</div>
     <h2 class="display" style="margin-top:18px;">Coming soon.</h2>
     <p>ANotes is alpha software, built and used daily on one Android phone. There's no store listing or signup yet — when it's ready to share more broadly, this page will say so.</p>
-    <span class="get-it-btn">🚧 In active development</span>
+    <div class="platform-row">
+      <span class="platform-chip"><span class="dot" style="background:#4ade80"></span>Android — in active development</span>
+      <span class="platform-chip muted"><span class="dot" style="background:#a49cc0"></span>iOS — not started yet, possible later</span>
+    </div>
     <p class="get-it-fine">No download link exists because there is nothing to hand you yet — that's the honest version.</p>
   </div>
 </section>
