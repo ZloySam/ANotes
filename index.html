@@ -19,6 +19,7 @@
     --purple: #8b5cf6; --purple-soft: #f0ebfe;
     --coral: #ff6b57;  --coral-soft: #ffece9;
     --green: #23ab5c;  --green-soft: #e5f7eb;
+    --amber: #b45309;  --amber-soft: #fdf0dc;
 
     --code-bg: #17132a;
     --code-text: #d9e9ff;
@@ -38,6 +39,7 @@
       --purple: #ab90fb; --purple-soft: #2a2149;
       --coral: #ff9285;  --coral-soft: #3a2130;
       --green: #4fdb8a;  --green-soft: #143726;
+      --amber: #f5a742;  --amber-soft: #3a2a12;
       --code-bg: #0c0a15; --code-text: #d9e9ff; --code-key: #8fd0ff; --code-muted: #5a5478;
       --shadow-sm: 0 1px 2px rgba(0,0,0,0.4); --shadow-md: 0 12px 28px -14px rgba(0,0,0,0.55); --shadow-lg: 0 24px 60px -20px rgba(0,0,0,0.65);
     }
@@ -51,6 +53,7 @@
     --purple: #ab90fb; --purple-soft: #2a2149;
     --coral: #ff9285;  --coral-soft: #3a2130;
     --green: #4fdb8a;  --green-soft: #143726;
+    --amber: #f5a742;  --amber-soft: #3a2a12;
     --code-bg: #0c0a15; --code-text: #d9e9ff; --code-key: #8fd0ff; --code-muted: #5a5478;
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.4); --shadow-md: 0 12px 28px -14px rgba(0,0,0,0.55); --shadow-lg: 0 24px 60px -20px rgba(0,0,0,0.65);
   }
@@ -223,10 +226,13 @@
   @media (max-width: 860px) { .screens-grid { grid-template-columns: 1fr 1fr !important; } }
   @media (max-width: 520px) { .screens-grid { grid-template-columns: 1fr !important; } }
 
-  .showcase-banner { margin-top: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 26px; box-shadow: var(--shadow-sm); }
-  .showcase-scroll { overflow-x: auto; border-radius: 10px; }
-  .showcase-scroll img { display: block; width: 900px; max-width: none; height: auto; }
-  .showcase-cap { margin-top: 18px; font-size: 15px; color: var(--ink-muted); max-width: 70ch; }
+  .showcase-banner { margin-top: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 30px 26px; box-shadow: var(--shadow-sm); text-align: center; }
+  .voice-toggle-demo { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .voice-pill { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; font-size: 15.5px; padding: 13px 24px; border-radius: 100px; }
+  .voice-pill.blue { background: var(--blue-soft); color: var(--blue); }
+  .voice-pill.amber { background: var(--amber-soft); color: var(--amber); }
+  .voice-toggle-arrow { font-size: 20px; color: var(--ink-faint); flex-shrink: 0; }
+  .showcase-cap { margin-top: 20px; font-size: 15px; color: var(--ink-muted); max-width: 56ch; margin-inline: auto; }
   .showcase-cap b { color: var(--ink); font-weight: 700; }
 
   /* ---------- icon showcase ---------- */
@@ -432,7 +438,7 @@
       <div class="feature"><div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><line x1="15" y1="15" x2="20" y2="20"/></svg></div>
         <div class="feature-title">Search across everything</div><p>Titles, note content, and folder names — one search box, on-device.</p></div>
       <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg></div>
-        <div class="feature-title">Dictation via Whisper</div><p>On-device, offline. Text appears when you stop talking, not while you talk.</p></div>
+        <div class="feature-title">Offline dictation</div><p>On-device, offline. Text appears when you stop talking, not while you talk.</p></div>
       <div class="feature"><div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></div>
         <div class="feature-title">System-integrated read-aloud</div><p>On-device text-to-speech. Select a sentence and "Read aloud" is right there in Android's own menu.</p></div>
       <div class="feature"><div class="icon-badge" style="background:var(--coral-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="4" y2="15"/><line x1="8" y1="5" x2="8" y2="19"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="16" y1="6" x2="16" y2="18"/><line x1="20" y1="9" x2="20" y2="15"/></svg></div>
@@ -462,13 +468,17 @@
         <div class="device-frame"><img src="screens/note-recording.png" alt="A note after recording, showing the original voice player"></div>
         <div class="screen-cap"><b>After you record</b><span>Your original voice, kept and playable.</span></div></div>
       <div class="screen-card"><div class="glow" style="background:var(--teal)"></div>
-        <div class="device-frame"><img src="screens/voice-settings.png" alt="Voice and speech settings, listing dictation and read-aloud engines"></div>
+        <div class="device-frame"><img src="screens/voice-settings-clean.png" alt="Voice and speech settings, listing dictation and read-aloud engines"></div>
         <div class="screen-cap"><b>Dictation &amp; voices</b><span>Every STT and TTS option, all offline.</span></div></div>
     </div>
 
     <div class="showcase-banner">
-      <div class="showcase-scroll"><img src="screens/dual-voice-showcase.png" alt="The play bar switching between read-aloud and your original recording, three states shown"></div>
-      <p class="showcase-cap"><b>One bar, two voices.</b> Tap to switch between what you said and what the app reads back — this is the mechanic that makes ANotes different from a plain note-taker.</p>
+      <div class="voice-toggle-demo" aria-hidden="true">
+        <span class="voice-pill blue">🔊 Read aloud</span>
+        <span class="voice-toggle-arrow">⇄</span>
+        <span class="voice-pill amber">🎙️ Your voice</span>
+      </div>
+      <p class="showcase-cap"><b>One button, two voices.</b> Switch between what you said and what the app reads back, any time — that's the bit that makes ANotes different from a plain note-taker.</p>
     </div>
     </div>
 
@@ -512,7 +522,7 @@
       </div>
       <div class="alert-card" style="margin-top:20px; background:var(--teal-soft); border-color:var(--teal);">
         <div class="eyebrow" style="border-color:var(--teal); color:var(--teal);"><span class="dot" style="background:var(--teal)"></span>also planned: encrypted sync</div>
-        <p>Optional backup to Google Cloud storage is planned too — no date yet. Notes would be encrypted with a passphrase only you hold before they ever leave the phone, so Google can't read them, and neither can anyone without that passphrase.</p>
+        <p>Optional cloud backup is planned too — no date yet. Notes would be encrypted with a passphrase only you hold before they ever leave the phone, so the storage provider can't read them, and neither can anyone without that passphrase.</p>
       </div>
     </div>
   </div>
