@@ -240,6 +240,10 @@
     font-size: 13px; color: var(--ink-faint); border: 1.5px dashed var(--border);
     padding: 6px 14px; border-radius: 100px; background: var(--surface);
   }
+  .not-yet-tag.soon {
+    border-style: solid; border-color: var(--purple); color: var(--purple);
+    background: var(--purple-soft); font-weight: 600;
+  }
 
   /* ---------- roadmap ---------- */
   .roadmap-layout { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 44px; align-items: start; }
@@ -383,7 +387,7 @@
       <div class="story" style="--c:var(--teal)"><div class="story-num">02</div><b>Note apps have burned you before.</b><p>Every note is a plain Markdown file on your own storage — open it in any text editor, with the app closed for good, if you ever want that.</p></div>
       <div class="story" style="--c:var(--purple)"><div class="story-num">03</div><b>"AI notes" apps ask you to trust a server with your voice.</b><p>There's no account, no cloud sync, no analytics — and no AI at all yet, stated up front rather than found out later.</p></div>
       <div class="story" style="--c:var(--coral)"><div class="story-num">04</div><b>Transcripts get words wrong.</b><p>The original recording is kept next to the transcript, so you can play back what you actually said.</p></div>
-      <div class="story" style="--c:var(--green)"><div class="story-num">05</div><b>Getting a note down has to beat deciding not to bother.</b><p>One tap on the home-screen widget, and it's already recording — no screen to wait for first.</p></div>
+      <div class="story" style="--c:var(--green)"><div class="story-num">05</div><b>Getting a note down has to beat deciding not to bother.</b><p>One tap on the home-screen widget and it starts recording in a second or two — no screen to open, and never a voice model to wait for.</p></div>
     </div>
 
     <div class="compare">
@@ -432,7 +436,7 @@
       <div class="feature"><div class="icon-badge" style="background:var(--green-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
         <div class="feature-title">Storage &amp; retention</div><p>Real measured usage, plus audio retention from 7 days to never. Default is never.</p></div>
       <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
-        <div class="feature-title">Fast Note widget</div><p>A home-screen widget. Tap it and you're already recording — no screen to open first.</p></div>
+        <div class="feature-title">Fast Note widget</div><p>A home-screen widget. Tap it and recording starts in a second or two — no screen to open, no model to load first.</p></div>
     </div>
   </div>
 </section>
@@ -467,7 +471,7 @@
     <div class="not-yet-row">
       <span class="not-yet-label">Not in ANotes today</span>
       <div class="not-yet-tags">
-        <span class="not-yet-tag">AI features</span>
+        <span class="not-yet-tag soon">AI features · coming in weeks</span>
         <span class="not-yet-tag">Archive UI</span>
         <span class="not-yet-tag">Sync &amp; backup</span>
         <span class="not-yet-tag">iOS app</span>
@@ -486,7 +490,7 @@
     </div>
     <div class="roadmap-layout">
       <div>
-        <p class="roadmap-lede">Summarising and working over your notes, running on the phone like everything else. <b>It's not in the app yet, and there's no date</b> — but the ground rules are already decided.</p>
+        <p class="roadmap-lede">Summarising and working over your notes, running on the phone like everything else. <b>It's not in the app yet — the target is a few weeks out</b> — and the ground rules are already decided.</p>
         <div class="principles">
           <div class="principle"><div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div><div><b>The original stays intact.</b>Every AI pass — a summary, a tag — is added next to your transcript, never in place of it.</div></div>
           <div class="principle"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><line x1="15" y1="15" x2="20" y2="20"/></svg></div><div><b>You set the scope.</b>One note, a selection, a folder, or a topic you search for. Nothing scans in the background.</div></div>
@@ -496,6 +500,10 @@
       <div class="alert-card">
         <div class="eyebrow"><span class="dot"></span>no cloud by default</div>
         <p>If an optional cloud model is ever offered, it will be opt-in, it will name exactly what's about to be sent before sending it, and it will never send your voice recordings.</p>
+      </div>
+      <div class="alert-card" style="margin-top:20px; background:var(--teal-soft); border-color:var(--teal);">
+        <div class="eyebrow" style="border-color:var(--teal); color:var(--teal);"><span class="dot" style="background:var(--teal)"></span>also planned: encrypted sync</div>
+        <p>Optional backup to Google Cloud storage is planned too — no date yet. Notes would be encrypted with a passphrase only you hold before they ever leave the phone, so Google can't read them, and neither can anyone without that passphrase.</p>
       </div>
     </div>
   </div>
