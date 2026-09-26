@@ -1,6 +1,10 @@
 <title>ANotes</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- What this page may load or talk to. connect-src is the only place the signup
+     form may send data; if the endpoint in form.js ever moves, change it here too. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://n8n.anotes.tech; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -313,6 +317,39 @@
   .platform-chip .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
   .platform-chip.muted { color: #a49cc0; font-weight: 500; background: rgba(255,255,255,0.04); }
 
+  /* ---------- signup form (inside #get-it, always on the dark background) ---------- */
+  .get-it-inner { padding-inline: 20px; }
+  /* Turnstile needs at least 300px of width. */
+  @media (max-width: 420px) { #get-it { margin-inline: 12px; } .get-it-inner { padding-inline: 16px; } }
+  .signup { display: grid; gap: 10px; max-width: 460px; margin: 30px auto 0; text-align: left; }
+  .signup label { color: #e7e2f7; font-size: 14.5px; font-weight: 600; }
+  .signup label span { color: #8f87ac; font-weight: 500; }
+  .signup input[type="email"], .signup textarea {
+    width: 100%; padding: 13px 16px; border-radius: 12px; margin-bottom: 6px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);
+    color: #fff; font: inherit; font-size: 15px;
+  }
+  .signup textarea { resize: vertical; min-height: 92px; }
+  .signup ::placeholder { color: #8f87ac; }
+  .signup input:focus-visible, .signup textarea:focus-visible, .signup button:focus-visible, .signup summary:focus-visible {
+    outline: 2px solid #8fd0ff; outline-offset: 2px;
+  }
+  .signup .signup-check { display: flex; align-items: center; gap: 10px; font-weight: 500; margin-bottom: 6px; }
+  .signup-check input { width: 18px; height: 18px; accent-color: #ab90fb; flex-shrink: 0; }
+  /* Off-screen rather than display:none, so simple bots still fill it in. */
+  .signup-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .signup-turnstile:empty { display: none; }
+  .signup .get-it-btn { margin-top: 4px; justify-self: start; border: 0; font-family: inherit; cursor: pointer; }
+  .signup .get-it-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+  .get-it-inner .signup-status { margin-top: 2px; min-height: 1.6em; font-size: 14.5px; font-weight: 600; color: #cbc4e6; }
+  .signup-status[data-kind="ok"] { color: #4fdb8a; }
+  .signup-status[data-kind="error"] { color: #ff9285; }
+  .signup-privacy { font-size: 13.5px; color: #a49cc0; }
+  .signup-privacy summary { cursor: pointer; color: #cbc4e6; }
+  .signup-privacy ul { margin: 10px 0 0; padding-left: 18px; }
+  .signup-privacy li { margin-bottom: 6px; }
+  .signup-privacy a { color: #8fd0ff; }
+
   /* ---------- licence ---------- */
   .licence-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 30px 32px; box-shadow: var(--shadow-sm); }
   .licence-card p { color: var(--ink-muted); font-size: 15px; max-width: 68ch; }
@@ -544,7 +581,41 @@
   <div class="get-it-inner">
     <div class="eyebrow" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.16); color:#cbc4e6;"><span class="dot" style="background:var(--coral)"></span>availability</div>
     <h2 class="display" style="margin-top:18px;">Coming soon.</h2>
-    <p>ANotes is alpha software, built and used daily on one Android phone. There's no store listing or signup yet — when it's ready to share more broadly, this page will say so.</p>
+    <p>ANotes is alpha software, built and used daily on one Android phone. There's no store listing yet. Leave your email and you'll get one message when it's ready to share more broadly — or send a question.</p>
+
+    <form id="signup" class="signup" method="post" action="#" novalidate>
+      <label for="su-email">Email</label>
+      <input id="su-email" name="email" type="email" required maxlength="254" autocomplete="email" inputmode="email" placeholder="you@example.com">
+
+      <label class="signup-check"><input id="su-notify" name="notify" type="checkbox" checked> Email me once when ANotes is ready</label>
+
+      <label for="su-message">Question or idea <span>(optional)</span></label>
+      <textarea id="su-message" name="message" rows="3" maxlength="2000"></textarea>
+
+      <!-- Honeypot: people never see this field; bots fill it in. -->
+      <div class="signup-hp" aria-hidden="true">
+        <label for="su-website">Leave this empty</label>
+        <input id="su-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div id="su-turnstile" class="signup-turnstile"></div>
+
+      <button type="submit" class="get-it-btn" disabled>Send</button>
+      <p class="signup-status" role="status" aria-live="polite"></p>
+
+      <details class="signup-privacy">
+        <summary>What happens to your email</summary>
+        <ul>
+          <li>It's used only to answer you and, if you ticked the box, to send one message when ANotes is ready. No newsletter; never sold or shared.</li>
+          <li>It's stored on a private server run by the developer, never in a code repository. A copy goes to the developer's private Telegram chat so it's seen quickly.</li>
+          <li>Your IP address is used only in memory, to limit how often the form can be sent. It isn't saved with your message.</li>
+          <li>The spam check is Cloudflare Turnstile, which processes some technical data from your browser (<a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer">Cloudflare's privacy policy</a>).</li>
+          <li>Release-notice addresses are deleted once that message is sent; messages when the conversation is over, and after 12 months at the latest. Encrypted server backups age out within 6 months.</li>
+          <li>To see or delete what's stored about you, send the form again from the same address and say so.</li>
+        </ul>
+      </details>
+    </form>
+
     <div class="platform-row">
       <span class="platform-chip"><span class="dot" style="background:#4ade80"></span>Android — in active development</span>
       <span class="platform-chip muted"><span class="dot" style="background:#a49cc0"></span>iOS — not started yet, possible later</span>
@@ -579,3 +650,5 @@
     <div class="footer-stamp"><span class="key">build</span> 0.25.0 · <span class="key">status</span> alpha · <span class="key">stamped</span> 15 September 2026</div>
   </div>
 </footer>
+
+<script src="form.js" defer></script>
