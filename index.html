@@ -5,6 +5,7 @@
      form may send data; if the endpoint in form.js ever moves, change it here too. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://n8n.anotes.tech; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="no-referrer">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -94,12 +95,7 @@
   /* ---------- top bar ---------- */
   .topbar { display: flex; align-items: center; justify-content: space-between; padding-block: 26px; gap: 16px; flex-wrap: wrap; }
   .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
-  .logo-mark {
-    width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0;
-    background: linear-gradient(135deg, var(--blue), var(--purple));
-    display: grid; place-items: center; box-shadow: var(--shadow-sm);
-  }
-  .logo-mark svg { width: 16px; height: 16px; }
+  .logo-img { display: block; flex-shrink: 0; }
   .status-pill {
     font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.03em;
     color: var(--ink-muted); background: var(--surface-2); border: 1px solid var(--border);
@@ -127,7 +123,7 @@
     display: inline-flex; align-items: center; gap: 10px;
     background: linear-gradient(100deg, var(--blue), var(--purple));
     color: #fff; font-weight: 600; font-size: 15px; padding: 14px 22px;
-    border-radius: 100px; box-shadow: var(--shadow-md);
+    border-radius: 100px; box-shadow: var(--shadow-md); text-decoration: none;
   }
   .cta-badge .sw { font-size: 12px; font-weight: 500; opacity: 0.85; font-family: "IBM Plex Mono", monospace; letter-spacing: 0.02em; }
   .cta-secondary { font-size: 14.5px; color: var(--ink-muted); }
@@ -155,7 +151,7 @@
     background: var(--code-bg); border-radius: 14px; padding: 16px 18px;
     font-family: "IBM Plex Mono", monospace; font-size: 12.5px; line-height: 1.85; color: var(--code-text);
     box-shadow: var(--shadow-md); position: absolute; bottom: -6px; left: 50%; transform: translateX(-108%) rotate(-3deg);
-    z-index: 3; width: 230px;
+    z-index: 3; width: 230px; white-space: pre-line;
   }
   .frontmatter .rule { color: var(--code-muted); } .frontmatter .key { color: var(--code-key); }
 
@@ -189,6 +185,7 @@
   .story-num { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 13px; color: var(--c, var(--blue)); }
   .story b { display: block; margin-top: 8px; font-size: 16px; font-weight: 700; }
   .story p { color: var(--ink-muted); margin-top: 6px; font-size: 14.5px; }
+  .story-note { display: block; margin-top: 10px; font-size: 12.5px; color: var(--ink-faint); }
   @media (max-width: 760px) { .story-grid { grid-template-columns: 1fr; } }
 
   .compare { margin-top: 56px; }
@@ -247,8 +244,8 @@
   .icon-swatch .name { font-size: 12.5px; font-weight: 600; text-align: center; }
   .icon-swatch .fam { font-size: 11px; color: var(--ink-faint); text-align: center; }
 
-  /* ---------- not yet (minimized, deliberately quiet) ---------- */
-  #not-built { padding-block: 40px; }
+  /* ---------- roadmap strip (minimized, deliberately quiet) ---------- */
+  #roadmap { padding-block: 40px; }
   .not-yet-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
   .not-yet-label { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-faint); flex-shrink: 0; }
   .not-yet-tags { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -261,7 +258,8 @@
     background: var(--purple-soft); font-weight: 600;
   }
 
-  /* ---------- roadmap ---------- */
+  /* ---------- "what's next" section: removed from the page for now (it is in git
+     history before this commit); styles kept for when it comes back ---------- */
   .roadmap-layout { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 44px; align-items: start; }
   .roadmap-lede { font-size: 18px; color: var(--ink); max-width: 56ch; }
   .roadmap-lede b { font-weight: 700; }
@@ -282,6 +280,8 @@
   /* ---------- privacy ---------- */
   .privacy-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
   .privacy-layout p { color: var(--ink-muted); font-size: 15.5px; max-width: 54ch; }
+  .privacy-layout .privacy-next { margin-top: 16px; padding: 14px 16px; background: var(--teal-soft); border: 1px solid var(--teal); border-radius: 12px; color: var(--ink); }
+  .privacy-next b { font-weight: 700; }
   .quote-card {
     background: linear-gradient(135deg, var(--blue-soft), var(--teal-soft));
     border: 1px solid var(--border); border-radius: 18px; padding: 30px 32px;
@@ -366,7 +366,7 @@
 <div class="wrap">
   <div class="topbar">
     <div class="logo">
-      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+      <img class="logo-img" src="logo.svg" alt="" width="32" height="32">
       ANotes
     </div>
     <div class="status-pill"><b>alpha</b> · android only · v0.25.0</div>
@@ -381,8 +381,8 @@
       <h1 style="margin-top:18px;">Everything stays<br><span class="accent">on this phone.</span></h1>
       <p class="sub">A notebook that listens, and reads aloud. Speech-to-text, text-to-speech, storage and search — all running on the phone in your hand.</p>
       <div class="hero-ctas">
-        <span class="cta-badge">Coming soon <span class="sw">· android first</span></span>
-        <span class="cta-secondary">Used daily, <b>on one phone</b>, right now.</span>
+        <a class="cta-badge" href="#get-it">Be one of the first to try it <span class="sw">→</span></a>
+        <span class="cta-secondary">Coming soon · <b>Android first</b></span>
       </div>
     </div>
     <div class="hero-devices">
@@ -391,7 +391,7 @@
       <div class="frontmatter" aria-hidden="true"><span class="rule">---</span>
 <span class="key">app:</span> ANotes
 <span class="key">status:</span> alpha
-<span class="key">network:</span> voice models only
+<span class="key">network:</span> downloads only
 <span class="rule">---</span></div>
     </div>
   </div>
@@ -408,17 +408,17 @@
       <div class="info-card">
         <div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg></div>
         <h3>Offline, by construction</h3>
-        <p>Speech recognition, speech synthesis, storage and search all run on the phone's own processor. No account, no server, no analytics. The only thing that ever needs a connection is downloading a voice model, once.</p>
+        <p>Speech recognition, speech synthesis, storage and search all run on the phone's own processor. No account, no server, no analytics. The only time it needs a connection is to download a voice model or a local AI model, once.</p>
       </div>
       <div class="info-card">
         <div class="icon-badge" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a1 1 0 0 1 1-1h4l2 2h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"/></svg></div>
         <h3>The files are yours</h3>
-        <p>Every note is a plain Markdown file with YAML front matter, sitting next to a SQLite index. The files are the source of truth — if the index is ever wrong, the app rebuilds it from them.</p>
+        <p>Every note is a plain Markdown file with YAML front matter, sitting next to a SQLite index. The files are the source of truth.</p>
       </div>
       <div class="info-card">
         <div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
-        <h3>Named for what's coming</h3>
-        <p>ANotes stands for "Local Notebook with AI." The AI features aren't built yet. What exists today is the recording, the transcript, the read-aloud, and the folder it's filed in.</p>
+        <h3>Local AI, arriving next week</h3>
+        <p>ANotes stands for "Local Notebook with AI." Local AI models already run on the phone in our test builds, and they arrive in the app next week — offline and private, like everything else.</p>
       </div>
     </div>
   </div>
@@ -433,9 +433,9 @@
     <div class="story-grid">
       <div class="story" style="--c:var(--blue)"><div class="story-num">01</div><b>You talk faster than you type.</b><p>Dictate a note and get text back, with nothing sent off the phone to produce it.</p></div>
       <div class="story" style="--c:var(--teal)"><div class="story-num">02</div><b>Note apps have burned you before.</b><p>Every note is a plain Markdown file on your own storage — open it in any text editor, with the app closed for good, if you ever want that.</p></div>
-      <div class="story" style="--c:var(--purple)"><div class="story-num">03</div><b>"AI notes" apps ask you to trust a server with your voice.</b><p>There's no account, no cloud sync, no analytics — and no AI at all yet, stated up front rather than found out later.</p></div>
-      <div class="story" style="--c:var(--coral)"><div class="story-num">04</div><b>Transcripts get words wrong.</b><p>The original recording is kept next to the transcript, so you can play back what you actually said.</p></div>
-      <div class="story" style="--c:var(--green)"><div class="story-num">05</div><b>Getting a note down has to beat deciding not to bother.</b><p>One tap on the home-screen widget and it starts recording in a second or two — no screen to open, and never a voice model to wait for.</p></div>
+      <div class="story" style="--c:var(--purple)"><div class="story-num">03</div><b>Most voice apps send your voice to their servers.</b><p>Once it's there, you can't check whether it's kept or used to train their AI. ANotes has no account, no cloud sync*, and no analytics — your voice becomes text on your phone.</p><span class="story-note">* Optional backup to your own Google Drive is coming, encrypted on the phone before it leaves.</span></div>
+      <div class="story" style="--c:var(--coral)"><div class="story-num">04</div><b>Transcripts get words wrong.</b><p>The original recording is kept next to the transcript, so you can play back what you actually said — and it stays ready to be transcribed again as better speech models arrive.</p></div>
+      <div class="story" style="--c:var(--green)"><div class="story-num">05</div><b>Getting a note down has to beat deciding not to bother.</b><p>One tap on the home-screen widget and it starts recording in a second — no screen to open, and never a voice model to wait for.</p></div>
     </div>
 
     <div class="compare">
@@ -443,15 +443,15 @@
       <div class="compare-grid">
         <div class="compare-card" style="--c:var(--blue)">
           <div class="compare-line them"><span class="tag">Voice memo apps</span><p>hand you an audio file and stop there.</p></div>
-          <div class="compare-line us"><span class="tag">ANotes</span><p>transcribes it into a searchable, organized note — and keeps the audio too.</p></div>
+          <div class="compare-line us"><span class="tag">ANotes</span><p>Transcribes it into a searchable, organized note — and keeps the audio too.</p></div>
         </div>
         <div class="compare-card" style="--c:var(--purple)">
           <div class="compare-line them"><span class="tag">Cloud "AI notes" tools</span><p>process your voice on a server somewhere.</p></div>
-          <div class="compare-line us"><span class="tag">ANotes</span><p>never lets what you say or write leave the phone.</p></div>
+          <div class="compare-line us"><span class="tag">ANotes</span><p>Never lets what you say or write leave the phone.</p></div>
         </div>
         <div class="compare-card" style="--c:var(--teal)">
           <div class="compare-line them"><span class="tag">Most note apps</span><p>store your writing in their own locked format.</p></div>
-          <div class="compare-line us"><span class="tag">ANotes</span><p>writes plain Markdown — readable with the app uninstalled.</p></div>
+          <div class="compare-line us"><span class="tag">ANotes</span><p>Writes plain Markdown — readable with the app uninstalled, and ready to use in Markdown apps like Obsidian.</p></div>
         </div>
       </div>
     </div>
@@ -462,29 +462,21 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow"><span class="dot" style="background:var(--green)"></span>what works today</div>
-      <h2>Concrete features, in alpha builds.</h2>
+      <h2>Six things it does best.</h2>
     </div>
     <div class="feature-grid">
-      <div class="feature"><div class="icon-badge" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a1 1 0 0 1 1-1h4l2 2h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"/></svg></div>
-        <div class="feature-title">Notes and folders</div><p>Create, edit, nest and move. Reorder by dragging.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
-        <div class="feature-title">Multi-select &amp; batch actions</div><p>Tap the disc to select, hold anything to drag. Batch move and delete.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--coral-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M6 7l1 12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-12"/></svg></div>
-        <div class="feature-title">Trash recovery</div><p>Delete is never immediately permanent. Deleting a folder asks what happens to what's inside it.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><line x1="15" y1="15" x2="20" y2="20"/></svg></div>
-        <div class="feature-title">Search across everything</div><p>Titles, note content, and folder names — one search box, on-device.</p></div>
       <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg></div>
-        <div class="feature-title">Offline dictation</div><p>On-device, offline. Text appears when you stop talking, not while you talk.</p></div>
+        <div class="feature-title">Offline dictation</div><p>Speak, stop, and the text is written on the phone itself. No internet needed, nothing uploaded.</p></div>
       <div class="feature"><div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></div>
-        <div class="feature-title">System-integrated read-aloud</div><p>On-device text-to-speech. Select a sentence and "Read aloud" is right there in Android's own menu.</p></div>
+        <div class="feature-title">Read any text aloud</div><p>Select any text in a note and &ldquo;Read aloud&rdquo; is right there in Android&rsquo;s own menu, with on-device voices.</p></div>
       <div class="feature"><div class="icon-badge" style="background:var(--coral-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="4" y2="15"/><line x1="8" y1="5" x2="8" y2="19"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="16" y1="6" x2="16" y2="18"/><line x1="20" y1="9" x2="20" y2="15"/></svg></div>
-        <div class="feature-title">Your original recording, kept</div><p>A dictated note holds the real audio. One player switches between your voice and the synthetic one.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 19h16"/></svg></div>
-        <div class="feature-title">Voice models, on demand</div><p>Nothing ships pre-installed. Preview, download and verify a language pack in-app.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--green-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
-        <div class="feature-title">Storage &amp; retention</div><p>Real measured usage, plus audio retention from 7 days to never. Default is never.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
-        <div class="feature-title">Fast Note widget</div><p>A home-screen widget. Tap it and recording starts in a second or two — no screen to open, no model to load first.</p></div>
+        <div class="feature-title">Your original recording, kept</div><p>A dictated note keeps the real audio. Switch between your own voice and the read-aloud voice any time.</p></div>
+      <div class="feature"><div class="icon-badge" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="feature-title">Your voice data, your rules</div><p>Every recording is processed and stored only on your phone. Keep the audio forever, or have it removed automatically after a set time.</p></div>
+      <div class="feature"><div class="icon-badge" style="background:var(--green-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+        <div class="feature-title">One-tap Fast Note</div><p>A home-screen widget: tap it and recording starts in a second. No screen to open, no model to load first.</p></div>
+      <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <div class="feature-title">Voices in your languages</div><p>Download only the language packs you need, for dictation and read-aloud. Nothing is preinstalled.</p></div>
     </div>
   </div>
 </section>
@@ -514,51 +506,23 @@
         <span class="voice-toggle-arrow">⇄</span>
         <span class="voice-pill amber">🎙️ Your voice</span>
       </div>
-      <p class="showcase-cap"><b>One button, two voices.</b> Switch between what you said and what the app reads back, any time — that's the bit that makes ANotes different from a plain note-taker.</p>
+      <p class="showcase-cap"><b>Two voices, one note.</b> Play back what you actually said, or have the app read the text aloud — switch any time. That's what makes ANotes different from a plain note-taker.</p>
     </div>
     </div>
 
   </div>
 </section>
 
-<section id="not-built">
+<section id="roadmap">
   <div class="wrap">
     <div class="not-yet-row">
-      <span class="not-yet-label">Not in ANotes today</span>
+      <span class="not-yet-label">Roadmap</span>
       <div class="not-yet-tags">
-        <span class="not-yet-tag soon">AI features · coming in weeks</span>
-        <span class="not-yet-tag">Archive UI</span>
-        <span class="not-yet-tag">Sync &amp; backup</span>
-        <span class="not-yet-tag">iOS app</span>
+        <span class="not-yet-tag soon">Local AI · next week</span>
+        <span class="not-yet-tag">Encrypted backup to Google Drive</span>
         <span class="not-yet-tag">Onboarding</span>
         <span class="not-yet-tag">Public release</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="next">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><span class="dot" style="background:var(--purple)"></span>what's next</div>
-      <h2>The next thing being built is local AI.</h2>
-    </div>
-    <div class="roadmap-layout">
-      <div>
-        <p class="roadmap-lede">Summarising a note, drafting a to-do list from it, setting a reminder — a local AI engine working over your notes, running on the phone like everything else. <b>It's not in the app yet — the target is a few weeks out</b> — and the ground rules are already decided.</p>
-        <div class="principles">
-          <div class="principle"><div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div><div><b>The original stays intact.</b>Every AI pass — a summary, a tag — is added next to your transcript, never in place of it.</div></div>
-          <div class="principle"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><line x1="15" y1="15" x2="20" y2="20"/></svg></div><div><b>You set the scope.</b>One note, a selection, a folder, or a topic you search for. Nothing scans in the background.</div></div>
-          <div class="principle"><div class="icon-badge" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/></svg></div><div><b>Results are a conversation.</b>They come back as something you can read, reply to, and save into a note if you want it kept.</div></div>
-        </div>
-      </div>
-      <div class="alert-card">
-        <div class="eyebrow"><span class="dot"></span>no cloud by default</div>
-        <p>If an optional cloud model is ever offered, it will be opt-in, it will name exactly what's about to be sent before sending it, and it will never send your voice recordings.</p>
-      </div>
-      <div class="alert-card" style="margin-top:20px; background:var(--teal-soft); border-color:var(--teal);">
-        <div class="eyebrow" style="border-color:var(--teal); color:var(--teal);"><span class="dot" style="background:var(--teal)"></span>also planned: encrypted sync</div>
-        <p>Optional cloud backup is planned too — no date yet. Notes would be encrypted with a passphrase only you hold before they ever leave the phone, so the storage provider can't read them, and neither can anyone without that passphrase.</p>
+        <span class="not-yet-tag">iOS app</span>
       </div>
     </div>
   </div>
@@ -571,7 +535,10 @@
       <h2>An architecture, not a promise.</h2>
     </div>
     <div class="privacy-layout">
-      <p>Notes never leave the phone because nothing in the app has a way to send them anywhere — no network code on that path, no account to sync to. There's no encryption claim here: your notes rely on your Android device's own security, the same as any other app-private storage. No account profiles, no usage-tracking SDKs.</p>
+      <div>
+        <p>Notes never leave the phone because nothing in the app has a way to send them anywhere — no network code on that path, no account to sync to. There's no encryption claim here: your notes rely on your Android device's own security, the same as any other app-private storage. No account profiles, no usage-tracking SDKs.</p>
+        <p class="privacy-next"><b>Coming next: optional backup to your own Google Drive.</b> Notes are encrypted on the phone with a passphrase only you know, before anything leaves it — so Google can't read them, and neither can anyone without that passphrase.</p>
+      </div>
       <div class="quote-card">"Everything stays on this phone."</div>
     </div>
   </div>
@@ -644,7 +611,7 @@
 <footer>
   <div class="wrap footer-row">
     <div class="logo" style="font-size:15px;">
-      <span class="logo-mark" style="width:22px;height:22px;border-radius:7px;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M4 7h16M4 12h16M4 17h10" stroke="white" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+      <img class="logo-img" src="logo.svg" alt="" width="24" height="24">
       ANotes
     </div>
     <div class="footer-stamp"><span class="key">build</span> 0.25.0 · <span class="key">status</span> alpha · <span class="key">stamped</span> 15 September 2026</div>
