@@ -8,7 +8,7 @@
 
   var ENDPOINT = 'https://n8n.anotes.tech/webhook/anotes-form-48511fa6409755fd476d0cab0b261c87';
   // The Turnstile SITE key (24 characters). Empty = the form stays switched off.
-  var TURNSTILE_SITE_KEY = '';
+  var TURNSTILE_SITE_KEY = '0x4AAAAAAFEeEDrE2n_bdVhf';
 
   var form = document.getElementById('signup');
   if (!form) return;
