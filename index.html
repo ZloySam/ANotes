@@ -251,6 +251,7 @@
   .showcase-banner { margin-top: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 30px 26px; box-shadow: var(--shadow-sm); text-align: center; }
   .voice-toggle-demo { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
   .voice-pill { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; font-size: 15.5px; padding: 13px 24px; border-radius: 100px; }
+  .voice-pill svg { width: 20px; height: 20px; flex-shrink: 0; }
   .voice-pill.blue { background: var(--blue-soft); color: var(--blue); }
   .voice-pill.amber { background: var(--amber-soft); color: var(--amber); }
   .voice-toggle-arrow { font-size: 20px; color: var(--ink-faint); flex-shrink: 0; }
@@ -258,9 +259,14 @@
   .showcase-cap b { color: var(--ink); font-weight: 700; }
 
   /* ---------- icon showcase ---------- */
-  .icon-showcase { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 30px; }
+  .icon-block { margin-top: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 30px 26px; box-shadow: var(--shadow-sm); text-align: center; }
+  .icon-block h3 { font-size: 20px; }
+  .icon-block p { margin-top: 8px; font-size: 15px; color: var(--ink-muted); }
+  .icon-showcase { display: flex; gap: 22px; flex-wrap: wrap; justify-content: center; margin-top: 26px; }
   .icon-swatch { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100px; }
-  .icon-swatch .tile { width: 68px; height: 68px; border-radius: 20px; box-shadow: var(--shadow-md); transition: transform .18s ease; }
+  /* The radius matches the SVG's own corner (rx 22 of 84), so the shadow follows the tile. */
+  .icon-swatch .tile { display: block; width: 68px; height: 68px; border-radius: 18px; box-shadow: var(--shadow-md); transition: transform .18s ease; }
+  @media (max-width: 520px) { .icon-showcase { gap: 16px 8px; } .icon-swatch { width: 76px; } .icon-swatch .tile { width: 56px; height: 56px; border-radius: 15px; } }
   .icon-swatch:hover .tile { transform: translateY(-4px) scale(1.04); }
   .icon-swatch .name { font-size: 12.5px; font-weight: 600; text-align: center; }
   .icon-swatch .fam { font-size: 11px; color: var(--ink-faint); text-align: center; }
@@ -390,7 +396,7 @@
       <img class="logo-img" src="logo.svg" alt="" width="32" height="32">
       ANotes
     </div>
-    <div class="status-pill"><b>alpha</b> · android only · v0.25.0</div>
+    <div class="status-pill"><b>alpha</b> · android only · v1.46.0</div>
   </div>
 </div>
 
@@ -427,17 +433,17 @@
     </div>
     <div class="col-3">
       <div class="info-card">
-        <div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg></div>
+        <div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="var(--blue)" aria-hidden="true"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1.2-9.1c0-.66.54-1.2 1.2-1.2.66 0 1.2.54 1.2 1.2l-.01 6.2c0 .66-.53 1.2-1.19 1.2-.66 0-1.2-.54-1.2-1.2V4.9zm6.5 6.1c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg></div>
         <h3>Offline, by construction</h3>
         <p>Speech recognition, speech synthesis, storage and search all run on the phone's own processor. No account, no server, no analytics. The only time it needs a connection is to download a voice model or a local AI model, once.</p>
       </div>
       <div class="info-card">
-        <div class="icon-badge" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a1 1 0 0 1 1-1h4l2 2h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"/></svg></div>
+        <div class="icon-badge" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="var(--teal)" aria-hidden="true"><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div>
         <h3>The files are yours</h3>
         <p>Every note is a plain Markdown file with YAML front matter, sitting next to a SQLite index. The files are the source of truth.</p>
       </div>
       <div class="info-card">
-        <div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+        <div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="var(--purple)" aria-hidden="true"><!-- the two sparkles of the app's launcher icon --><path transform="translate(8.5 2.4) scale(0.77)" d="M9.5,0 C11.02,4.813 14.187,7.98 19,9.5 C14.187,11.02 11.02,14.187 9.5,19 C7.98,14.187 4.813,11.02 0,9.5 C4.813,7.98 7.98,4.813 9.5,0 Z"/><path transform="translate(0.8 13.2) scale(0.487)" d="M9.5,0 C11.02,4.813 14.187,7.98 19,9.5 C14.187,11.02 11.02,14.187 9.5,19 C7.98,14.187 4.813,11.02 0,9.5 C4.813,7.98 7.98,4.813 9.5,0 Z"/></svg></div>
         <h3>Local AI, built in</h3>
         <p>ANotes stands for "Local Notebook with AI." A local AI model runs right on your phone and works with your notes — no internet, no server, nothing sent anywhere.</p>
       </div>
@@ -486,17 +492,17 @@
       <h2>Six things it does best.</h2>
     </div>
     <div class="feature-grid">
-      <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg></div>
+      <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="var(--blue)" aria-hidden="true"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1.2-9.1c0-.66.54-1.2 1.2-1.2.66 0 1.2.54 1.2 1.2l-.01 6.2c0 .66-.53 1.2-1.19 1.2-.66 0-1.2-.54-1.2-1.2V4.9zm6.5 6.1c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg></div>
         <div class="feature-title">Offline dictation</div><p>Speak, stop, and the text is written on the phone itself. No internet needed, nothing uploaded.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></div>
+      <div class="feature"><div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="var(--purple)" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></div>
         <div class="feature-title">Read any text aloud</div><p>Select any text in a note and &ldquo;Read aloud&rdquo; is right there in Android&rsquo;s own menu, with on-device voices.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--coral-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="4" y2="15"/><line x1="8" y1="5" x2="8" y2="19"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="16" y1="6" x2="16" y2="18"/><line x1="20" y1="9" x2="20" y2="15"/></svg></div>
+      <div class="feature"><div class="icon-badge" style="background:var(--coral-soft)"><svg viewBox="0 0 24 24" fill="var(--coral)" aria-hidden="true"><path d="M7 18h2V6H7v12zm4 4h2V2h-2v20zm-8-8h2v-4H3v4zm12 4h2V6h-2v12zm4-8v4h2v-4h-2z"/></svg></div>
         <div class="feature-title">Your original recording, kept</div><p>A dictated note keeps the real audio. Switch between your own voice and the read-aloud voice any time.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div class="feature"><div class="icon-badge" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="var(--teal)" aria-hidden="true"><path d="M18 4v16H6V8.83L10.83 4H18m0-2h-8L4 8v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 7h2v4H9zm3 0h2v4h-2zm3 0h2v4h-2z"/></svg></div>
         <div class="feature-title">Your voice data, your rules</div><p>Every recording is processed and stored only on your phone. Keep the audio forever, or have it removed automatically after a set time.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--green-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+      <div class="feature"><div class="icon-badge" style="background:var(--green-soft)"><svg viewBox="0 0 24 24" fill="var(--green)" aria-hidden="true"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg></div>
         <div class="feature-title">One-tap Fast Note</div><p>A home-screen widget: tap it and recording starts in a second. No screen to open, no model to load first.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+      <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="var(--blue)" aria-hidden="true"><path d="M9 13c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 8c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm-6 4c.22-.72 3.31-2 6-2 2.7 0 5.8 1.29 6 2H3zM15.08 7.05c.84 1.18.84 2.71 0 3.89l1.68 1.69c2.02-2.02 2.02-5.07 0-7.27l-1.68 1.69zM20.07 2l-1.63 1.63c2.77 3.02 2.77 7.56 0 10.74L20.07 16c3.9-3.89 3.91-9.95 0-14z"/></svg></div>
         <div class="feature-title">Voices in your languages</div><p>Download only the language packs you need, for dictation and read-aloud. Nothing is preinstalled.</p></div>
     </div>
   </div>
@@ -512,25 +518,40 @@
     <div class="screens-grid" style="grid-template-columns:repeat(3,1fr);">
       <div class="screen-card"><div class="glow" style="background:var(--blue)"></div>
         <div class="device-frame"><img src="screens/home-list-v2.png" alt="ANotes notes list"></div>
-        <div class="screen-cap"><b>Main screen</b><span>Folders and notes, newest first.</span></div></div>
+        <div class="screen-cap"><b>Main screen</b><span>Folders and notes on one screen.</span></div></div>
       <div class="screen-card"><div class="glow" style="background:var(--coral)"></div>
-        <div class="device-frame"><img src="screens/note-recording.png" alt="A note after recording, showing the original voice player"></div>
+        <div class="device-frame"><img src="screens/note-recording.png" alt="A note with its read-aloud player and the original recording"></div>
         <div class="screen-cap"><b>After you record</b><span>Your original voice, kept and playable.</span></div></div>
       <div class="screen-card"><div class="glow" style="background:var(--teal)"></div>
-        <div class="device-frame"><img src="screens/voice-settings-clean.png" alt="Voice and speech settings, listing dictation and read-aloud engines"></div>
-        <div class="screen-cap"><b>Dictation &amp; voices</b><span>Every STT and TTS option, all offline.</span></div></div>
+        <div class="device-frame"><img src="screens/voice-settings-clean.png" alt="Voice and speech settings, listing offline dictation models to download"></div>
+        <div class="screen-cap"><b>Dictation &amp; voices</b><span>Download only the offline models you need.</span></div></div>
     </div>
 
     <div class="showcase-banner">
       <div class="voice-toggle-demo" aria-hidden="true">
-        <span class="voice-pill blue">🔊 Read aloud</span>
+        <span class="voice-pill blue"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>Read aloud</span>
         <span class="voice-toggle-arrow">⇄</span>
-        <span class="voice-pill amber">🎙️ Your voice</span>
+        <span class="voice-pill amber"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18h2V6H7v12zm4 4h2V2h-2v20zm-8-8h2v-4H3v4zm12 4h2V6h-2v12zm4-8v4h2v-4h-2z"/></svg>Your voice</span>
       </div>
       <p class="showcase-cap"><b>Two voices, one note.</b> Play back what you actually said, or have the app read the text aloud — switch any time. That's what makes ANotes different from a plain note-taker.</p>
     </div>
-    </div>
 
+    <!-- The app's eight launcher icons, drawn from the same colours and geometry as
+         voice_notes lib/features/app_icon/app_icon.dart (icons/*.svg). -->
+    <div class="icon-block">
+      <h3>Pick its icon.</h3>
+      <p>Eight launcher icons ship with the app. Choose one in Settings → App icon.</p>
+      <div class="icon-showcase">
+        <div class="icon-swatch"><img class="tile" src="icons/sapphire.svg" alt="" width="68" height="68"><span class="name">Sapphire Aura</span><span class="fam">default</span></div>
+        <div class="icon-swatch"><img class="tile" src="icons/mediterranean.svg" alt="" width="68" height="68"><span class="name">Mediterranean Core</span></div>
+        <div class="icon-swatch"><img class="tile" src="icons/dusk.svg" alt="" width="68" height="68"><span class="name">Electric Dusk</span></div>
+        <div class="icon-swatch"><img class="tile" src="icons/sunset.svg" alt="" width="68" height="68"><span class="name">Sunset Wave</span></div>
+        <div class="icon-swatch"><img class="tile" src="icons/neon.svg" alt="" width="68" height="68"><span class="name">Neo-Neon Deep</span></div>
+        <div class="icon-swatch"><img class="tile" src="icons/forest.svg" alt="" width="68" height="68"><span class="name">Forest Sparks</span></div>
+        <div class="icon-swatch"><img class="tile" src="icons/mineral.svg" alt="" width="68" height="68"><span class="name">Tech Mineral</span></div>
+        <div class="icon-swatch"><img class="tile" src="icons/zenith.svg" alt="" width="68" height="68"><span class="name">Cyber Zenith</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -634,7 +655,7 @@
       <img class="logo-img" src="logo.svg" alt="" width="24" height="24">
       ANotes
     </div>
-    <div class="footer-stamp"><span class="key">build</span> 0.25.0 · <span class="key">status</span> alpha · <span class="key">stamped</span> 15 September 2026</div>
+    <div class="footer-stamp"><span class="key">build</span> 1.46.0 · <span class="key">status</span> alpha · <span class="key">stamped</span> 27 September 2026</div>
   </div>
 </footer>
 

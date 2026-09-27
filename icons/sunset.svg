@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="22.5 4.5 84 84">
+  <!-- ANotes launcher icon "Sunset Wave"
+       (voice_notes: android/app/src/main/res/drawable/ic_launcher_fg_sunset.xml). -->
+  <rect x="22.5" y="4.5" width="84" height="84" rx="22" fill="#FF5252"/>
+  <path fill="#FFD740" transform="translate(74 18)" d="M9.5,0 C11.02,4.813 14.187,7.98 19,9.5 C14.187,11.02 11.02,14.187 9.5,19 C7.98,14.187 4.813,11.02 0,9.5 C4.813,7.98 7.98,4.813 9.5,0 Z"/>
+  <path fill="#FFD740" transform="translate(64 32) scale(0.631579)" d="M9.5,0 C11.02,4.813 14.187,7.98 19,9.5 C14.187,11.02 11.02,14.187 9.5,19 C7.98,14.187 4.813,11.02 0,9.5 C4.813,7.98 7.98,4.813 9.5,0 Z"/>
+  <rect x="43" y="45" width="34" height="6" rx="3" fill="#FFD740"/>
+  <rect x="36" y="57" width="48" height="6" rx="3" fill="#FFFFFF"/>
+  <rect x="47" y="69" width="26" height="6" rx="3" fill="#FFFFFF"/>
+</svg>
