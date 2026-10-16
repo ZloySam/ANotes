@@ -421,6 +421,105 @@
   .road-st { display: block; font-family: "IBM Plex Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
   @media (max-width: 900px) { .road-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 520px) { .road-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- owner review 2026-10-16 ---------- */
+  .licence-card .licence-plan { margin-top: 12px; color: var(--ink); }
+  .topbar .logo-img { cursor: pointer; transition: transform .25s ease; }
+  .topbar .logo-img:hover { transform: rotate(-8deg) scale(1.06); }
+  .topbar .logo-img.spin { animation: logo-pop .35s ease; }
+  @keyframes logo-pop { 0% { transform: scale(.7) rotate(-20deg); } 70% { transform: scale(1.12); } 100% { transform: none; } }
+
+  /* Carousel heading: title and arrows on one row. */
+  .car-head { flex-direction: row; align-items: flex-end; justify-content: space-between; max-width: none; margin-bottom: 24px; flex-wrap: wrap; }
+  .car-head .car-nav { margin: 0; }
+  .feature { display: flex; flex-direction: column; gap: 10px; }
+  .f-label { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; }
+  .feature .feature-title { font-family: "Sora", sans-serif; font-size: 19px; font-weight: 700; line-height: 1.25; }
+  .f-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .f-list li { position: relative; padding-left: 16px; font-size: 14.5px; color: var(--ink-muted); line-height: 1.55; }
+  .f-list li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--border); }
+  /* A small chip that looks like the app's own button, set inside a sentence. */
+  .ui { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 8px; vertical-align: -6px; margin: 0 1px; }
+  .ui svg { width: 15px; height: 15px; fill: currentColor; }
+  .ui-blue { background: var(--blue-soft); color: var(--blue); }
+  .ui-purple { background: var(--purple-soft); color: var(--purple); }
+  .ui-amber { background: var(--amber-soft); color: var(--amber); }
+  .ui-green { background: var(--green-soft); color: var(--green); }
+  .ui-teal { background: var(--teal-soft); color: var(--teal); }
+
+  /* Icon strip: a thin row between topics. */
+  .icon-strip { border-block: 1px solid var(--border); background: var(--surface); padding-block: 14px; }
+  .icon-strip-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .icon-strip-cap { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--ink-faint); }
+  .icon-strip-tiles { display: flex; gap: 10px; flex-wrap: wrap; }
+  .icon-strip .icon-swatch { width: auto; display: block; background: none; border: 0; padding: 3px; border-radius: 12px; cursor: pointer; }
+  .icon-strip .icon-swatch img { display: block; width: 34px; height: 34px; border-radius: 9px; transition: transform .18s ease; }
+  .icon-strip .icon-swatch:hover img { transform: translateY(-3px); }
+  .icon-strip .icon-swatch[aria-pressed="true"] { outline: 2px solid var(--blue); outline-offset: 1px; }
+  .icon-strip .icon-swatch:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+  /* Comparison: readable "them" lines, labels without the pill. */
+  .compare-line { font-size: 15.5px; }
+  .compare-line .ctag { display: block; font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+  .compare-line.them .ctag { color: var(--ink-muted); }
+  .compare-line.them p { color: var(--ink-muted); text-decoration-color: rgba(255,146,133,.65); text-decoration-thickness: 1.5px; }
+  .compare-line.us .ctag { color: var(--c, var(--blue)); }
+
+  /* From idea to anywhere: three steps. */
+  .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; counter-reset: step; }
+  .flow-step { position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .flow-num { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; background: var(--purple-soft); color: var(--purple); margin-bottom: 10px; }
+  .flow-shot { width: 100%; max-width: 240px; aspect-ratio: 540 / 1170; display: grid; align-items: center; margin-bottom: 14px; }
+  .flow-shot .device-frame { position: relative; width: 100%; border-radius: 22px; padding: 8px; transform: none; animation: none; left: auto; top: auto; box-shadow: var(--shadow-md); }
+  .flow-shot .device-frame img { border-radius: 14px; }
+  .flow-step b { font-size: 16.5px; }
+  .flow-step span { font-size: 14.5px; color: var(--ink-muted); max-width: 30ch; }
+  .rec-card { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 22px 18px; text-align: left; box-shadow: var(--shadow-md); }
+  .rec-top { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
+  .rec-dot { width: 10px; height: 10px; border-radius: 50%; background: #ff5a4f; animation: blink 1.2s ease-in-out infinite; }
+  .rec-time { margin-left: auto; font-family: "IBM Plex Mono", monospace; color: var(--ink-faint); }
+  .rec-wave, .vd-wave { display: flex; align-items: center; gap: 3px; height: 44px; margin: 16px 0; }
+  .rec-wave i, .vd-wave i { flex: 1; border-radius: 3px; background: var(--amber); height: 30%; animation: bar 1.1s ease-in-out infinite; }
+  .rec-wave i:nth-child(3n), .vd-wave i:nth-child(3n) { animation-delay: -.3s; }
+  .rec-wave i:nth-child(4n+1), .vd-wave i:nth-child(4n+1) { animation-delay: -.6s; }
+  .rec-wave i:nth-child(5n+2), .vd-wave i:nth-child(5n+2) { animation-delay: -.85s; }
+  .rec-text { font-size: 14px; color: var(--ink-muted); }
+  .rec-caret { display: inline-block; width: 2px; height: 1em; background: var(--blue); vertical-align: -2px; margin-left: 2px; animation: blink 1s steps(2) infinite; }
+  @keyframes bar { 0%, 100% { height: 22%; } 50% { height: 95%; } }
+  @keyframes blink { 50% { opacity: .25; } }
+  @media (max-width: 860px) { .flow { grid-template-columns: 1fr; } .flow-shot { max-width: 220px; } }
+
+  /* Two voices, one note: a small live demo. */
+  .voice-pill { border: 0; cursor: pointer; font: inherit; font-weight: 700; opacity: .55; transition: opacity .2s ease, transform .2s ease; }
+  .voice-pill[aria-selected="true"] { opacity: 1; transform: scale(1.04); }
+  .voice-pill:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+  .vd-stage { max-width: 520px; margin: 22px auto 0; min-height: 92px; }
+  .vd-text { font-size: 17px; color: var(--ink-muted); }
+  .vd-text span { padding: 2px 1px; border-radius: 4px; transition: background .2s ease, color .2s ease; }
+  .vd-text span.on { background: var(--blue-soft); color: var(--ink); }
+  .vd-stage[data-mode="read"] .vd-wave { display: none; }
+  .vd-stage[data-mode="voice"] .vd-text { display: none; }
+
+  /* Roadmap as a timeline. */
+  .timeline { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: linear-gradient(90deg, var(--green), var(--purple) 45%, var(--border) 75%); }
+  .tl { position: relative; padding-top: 30px; }
+  .tl::before { content: ""; position: absolute; top: 0; left: 0; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 2px solid var(--border); }
+  .tl.done::before { background: var(--green); border-color: var(--green); }
+  .tl.now::before { background: var(--purple); border-color: var(--purple); box-shadow: 0 0 0 6px var(--purple-soft); }
+  .tl-when { display: block; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; }
+  .tl.done .tl-when { color: var(--green); }
+  .tl.now .tl-when { color: var(--purple); }
+  .tl b { display: block; font-size: 15.5px; margin-bottom: 4px; }
+  .tl p { color: var(--ink-muted); font-size: 13.5px; }
+  .tl.later { opacity: .8; }
+  @media (max-width: 980px) { .timeline { grid-template-columns: 1fr; gap: 0; } .timeline::before { left: 7px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; background: linear-gradient(180deg, var(--green), var(--purple) 45%, var(--border) 75%); } .tl { padding: 0 0 22px 34px; } }
+
+  /* Hero: less empty space above the headline. */
+  .hero-grid { padding-top: 8px; }
+  .hero-devices { height: 420px; }
+
+  @media (prefers-reduced-motion: reduce) { .rec-wave i, .vd-wave i { height: 60%; } }
 </style>
 
 <div class="wrap">
@@ -438,7 +537,7 @@
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow"><span class="dot"></span>voice notes, entirely offline</div>
-      <h1 style="margin-top:18px;">Everything stays<br><span class="accent">on this phone.</span></h1>
+      <h1 style="margin-top:18px;">Everything stays<br><span class="accent">on your phone.</span></h1>
       <p class="sub">A notebook that listens, and reads aloud. Speech-to-text, text-to-speech, storage and search — all running on the phone in your hand.</p>
       <div class="hero-ctas">
         <a class="cta-badge" href="#get-it">Be one of the first to try it <span class="sw">→</span></a>
@@ -465,15 +564,15 @@
     </div>
     <div class="privacy-layout">
       <div>
-        <p>Notes never leave the phone because nothing in the app has a way to send them anywhere — no network code on that path, no account to sync to. There's no encryption claim here: your notes rely on your Android device's own security, the same as any other app-private storage. No account profiles, no usage-tracking SDKs.</p>
+        <p>Your notes never leave the phone, because nothing in the app has a way to send them anywhere: no account, no sync, no analytics. They live in <i class="app">ANotes</i>' private storage, which other apps can't open, protected by your phone's own encryption and screen lock. When you want a note somewhere else, you share it yourself.</p>
       </div>
-      <div class="quote-card">"Everything stays on this phone."</div>
+      <div class="quote-card">"Everything stays on your phone."</div>
     </div>
     <div class="proof-grid">
       <div class="proof"><span class="proof-tag">made possible by</span><b>Offline dictation</b>Speech becomes text on the phone's own processor.</div>
-      <div class="proof"><span class="proof-tag">made possible by</span><b>On-device voices</b>Read aloud with voices you download once, then offline.</div>
-      <div class="proof"><span class="proof-tag">made possible by</span><b>Plain Markdown files</b>Readable with the app uninstalled.</div>
-      <div class="proof"><span class="proof-tag">made possible by</span><b>Your recording rules</b>Keep the audio forever, or have it removed after a set time.</div>
+      <div class="proof"><span class="proof-tag">made possible by</span><b>On-device voices</b>Downloaded once, then they read aloud with no connection.</div>
+      <div class="proof"><span class="proof-tag">made possible by</span><b>Plain Markdown</b>Share any note as a .md file; any text app opens it.</div>
+      <div class="proof"><span class="proof-tag">made possible by</span><b>Your recording rules</b>Keep the audio forever, or let it clear itself.</div>
     </div>
     <p class="privacy-next"><b>Coming next: optional backup to your own Google Drive.</b> Notes are encrypted on the phone with a passphrase only you know, before anything leaves it — so Google can't read them, and neither can anyone without that passphrase.</p>
   </div>
@@ -481,55 +580,75 @@
 
 <section id="works-today">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head car-head">
       <h2>Six things <i class="app">ANotes</i> does best.</h2>
-      <p>Swipe, or use the arrows.</p>
+      <div class="car-nav"><button type="button" data-dir="prev" aria-label="Previous">&larr;</button><button type="button" data-dir="next" aria-label="Next">&rarr;</button></div>
     </div>
-    <div class="car-nav"><button type="button" data-dir="prev" aria-label="Previous">&larr;</button><button type="button" data-dir="next" aria-label="Next">&rarr;</button></div>
     <div class="feature-grid">
-      <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="var(--blue)" aria-hidden="true"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1.2-9.1c0-.66.54-1.2 1.2-1.2.66 0 1.2.54 1.2 1.2l-.01 6.2c0 .66-.53 1.2-1.19 1.2-.66 0-1.2-.54-1.2-1.2V4.9zm6.5 6.1c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg></div>
-        <div class="feature-title">Offline dictation</div><p>Speak, stop, and the text is written on the phone itself. No internet needed, nothing uploaded. Long recordings are written while you speak, and Back keeps your words. Add your own words, like names, and every new transcription is corrected offline.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="var(--purple)" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></div>
-        <div class="feature-title">Read any text aloud</div><p>Select any text in a note and &ldquo;Read aloud&rdquo; is right there in Android&rsquo;s own menu, with on-device voices. Start from the cursor, and see where it is in the text.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--coral-soft)"><svg viewBox="0 0 24 24" fill="var(--coral)" aria-hidden="true"><path d="M7 18h2V6H7v12zm4 4h2V2h-2v20zm-8-8h2v-4H3v4zm12 4h2V6h-2v12zm4-8v4h2v-4h-2z"/></svg></div>
-        <div class="feature-title">Your original recording, kept</div><p>A dictated note keeps the real audio, and a note can hold several recordings. Transcribe any of them again with another model, compare the old and new text, then keep, add below or replace. Replace never deletes what you typed.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="var(--teal)" aria-hidden="true"><path d="M18 4v16H6V8.83L10.83 4H18m0-2h-8L4 8v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 7h2v4H9zm3 0h2v4h-2zm3 0h2v4h-2z"/></svg></div>
-        <div class="feature-title">Your voice data, your rules</div><p>Every recording is processed and stored only on your phone. Keep the audio forever, or have it removed automatically after a set time.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--green-soft)"><svg viewBox="0 0 24 24" fill="var(--green)" aria-hidden="true"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg></div>
-        <div class="feature-title">One-tap Fast Note</div><p>A home-screen widget: tap it and recording starts in a second. It opens the normal note screen, already recording. Or pick the text widget to start with the keyboard.</p></div>
-      <div class="feature"><div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="var(--blue)" aria-hidden="true"><path d="M9 13c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 8c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm-6 4c.22-.72 3.31-2 6-2 2.7 0 5.8 1.29 6 2H3zM15.08 7.05c.84 1.18.84 2.71 0 3.89l1.68 1.69c2.02-2.02 2.02-5.07 0-7.27l-1.68 1.69zM20.07 2l-1.63 1.63c2.77 3.02 2.77 7.56 0 10.74L20.07 16c3.9-3.89 3.91-9.95 0-14z"/></svg></div>
-        <div class="feature-title">Voices in your languages</div><p>Download only the language packs you need, for dictation and read-aloud. Nothing is preinstalled.</p></div>
+      <div class="feature"><span class="f-label" style="color:var(--blue)">Dictation</span>
+        <div class="feature-title">Talk. It types, offline.</div>
+        <ul class="f-list">
+          <li>Tap <span class="ui ui-blue" title="Mic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg></span> and speak. The text is written on the phone.</li>
+          <li>Long recordings are written while you talk.</li>
+          <li>Leave mid-thought: your words still arrive.</li>
+          <li>Teach it names and terms with My words.</li>
+        </ul></div>
+      <div class="feature"><span class="f-label" style="color:var(--purple)">Read aloud</span>
+        <div class="feature-title">Listen to any note.</div>
+        <ul class="f-list">
+          <li>Tap <span class="ui ui-purple" title="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span> and the note reads itself, with on-device voices.</li>
+          <li>Start at the cursor, or only the part you selected.</li>
+          <li>The sentence being read is marked, and the page follows it.</li>
+        </ul></div>
+      <div class="feature"><span class="f-label" style="color:var(--coral)">Your recordings</span>
+        <div class="feature-title">Your voice, kept. Your rules.</div>
+        <ul class="f-list">
+          <li>The real audio <span class="ui ui-amber" title="Recording"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h2V6H7v12zm4 4h2V2h-2v20zm-8-8h2v-4H3v4zm12 4h2V6h-2v12zm4-8v4h2v-4h-2z"/></svg></span> stays next to the text. A note can hold several.</li>
+          <li>Transcribe again with a better model. What you typed is never replaced.</li>
+          <li>Keep audio forever, or let it clear itself after a set time.</li>
+        </ul></div>
+      <div class="feature"><span class="f-label" style="color:var(--green)">Fast note</span>
+        <div class="feature-title">An idea? One tap.</div>
+        <ul class="f-list">
+          <li>Tap <span class="ui ui-green" title="Fast note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg></span> on your home screen and just talk.</li>
+          <li>It's saved before the thought slips away.</li>
+          <li>Prefer typing? There is a text widget too.</li>
+        </ul></div>
+      <div class="feature"><span class="f-label" style="color:var(--teal)">Languages</span>
+        <div class="feature-title">Speaks your languages.</div>
+        <ul class="f-list">
+          <li>Pick dictation and read-aloud models <span class="ui ui-teal" title="Download"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></span> from the built-in library.</li>
+          <li>Only the languages you need. Nothing is preinstalled.</li>
+          <li>Download once, then it works offline.</li>
+        </ul></div>
+      <div class="feature"><span class="f-label" style="color:var(--blue)">Write &amp; share</span>
+        <div class="feature-title">Make it neat. Send it anywhere.</div>
+        <ul class="f-list">
+          <li>Headings, <span class="ui ui-blue" title="Bold"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.6 10.79c.97-.67 1.65-1.77 1.65-2.79 0-2.26-1.75-4-4-4H7v14h7.04c2.09 0 3.71-1.7 3.71-3.79 0-1.52-.86-2.82-2.15-3.42zM10 6.5h3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-3v-3zm3.5 9H10v-3h3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5z"/></svg></span> bold, lists and checklists right on the keyboard.</li>
+          <li><span class="ui ui-blue" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg></span> Share to messengers, email or AI apps: as text, audio or a .md file.</li>
+          <li>Text shared from any app becomes a note.</li>
+        </ul></div>
     </div>
   </div>
 </section>
 
-
-<section id="what-it-is">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>A notebook, not a service.</h2>
-      <p><i class="app">ANotes</i> is a notes app for Android. You type a note or dictate it, and you can work on it with any local AI model on your phone — offline, privately, with no network needed.</p>
-    </div>
-    <div class="col-3">
-      <div class="info-card">
-        <div class="icon-badge" style="background:var(--blue-soft)"><svg viewBox="0 0 24 24" fill="var(--blue)" aria-hidden="true"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1.2-9.1c0-.66.54-1.2 1.2-1.2.66 0 1.2.54 1.2 1.2l-.01 6.2c0 .66-.53 1.2-1.19 1.2-.66 0-1.2-.54-1.2-1.2V4.9zm6.5 6.1c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg></div>
-        <h3>Offline, by construction</h3>
-        <p>Speech recognition, speech synthesis, storage and search all run on the phone's own processor. No account, no server, no analytics. The only time it needs a connection is to download a voice model or a local AI model, once.</p>
-      </div>
-      <div class="info-card">
-        <div class="icon-badge" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="var(--teal)" aria-hidden="true"><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div>
-        <h3>The files are yours</h3>
-        <p>Every note is a plain Markdown file with YAML front matter, sitting next to a SQLite index. The files are the source of truth.</p>
-      </div>
-      <div class="info-card">
-        <div class="icon-badge" style="background:var(--purple-soft)"><svg viewBox="0 0 24 24" fill="var(--purple)" aria-hidden="true"><!-- the two sparkles of the app's launcher icon --><path transform="translate(8.5 2.4) scale(0.77)" d="M9.5,0 C11.02,4.813 14.187,7.98 19,9.5 C14.187,11.02 11.02,14.187 9.5,19 C7.98,14.187 4.813,11.02 0,9.5 C4.813,7.98 7.98,4.813 9.5,0 Z"/><path transform="translate(0.8 13.2) scale(0.487)" d="M9.5,0 C11.02,4.813 14.187,7.98 19,9.5 C14.187,11.02 11.02,14.187 9.5,19 C7.98,14.187 4.813,11.02 0,9.5 C4.813,7.98 7.98,4.813 9.5,0 Z"/></svg></div>
-        <h3>Local AI, built in</h3>
-        <p><i class="app">ANotes</i> stands for "Local Notebook with AI." A local AI model runs right on your phone and works with your notes — no internet, no server, nothing sent anywhere.</p>
-      </div>
+<!-- The app's eight launcher icons, drawn from the same colours and geometry as
+     voice_notes lib/features/app_icon/app_icon.dart (icons/*.svg). -->
+<div class="icon-strip" aria-label="App icons">
+  <div class="wrap icon-strip-row">
+    <span class="icon-strip-cap">Eight icons ship with the app. Tap one.</span>
+    <div class="icon-strip-tiles">
+      <button type="button" class="icon-swatch" aria-pressed="true" title="Sapphire Aura (default)"><img src="icons/sapphire.svg" alt="Sapphire Aura" width="34" height="34"></button>
+      <button type="button" class="icon-swatch" aria-pressed="false" title="Mediterranean Core"><img src="icons/mediterranean.svg" alt="Mediterranean Core" width="34" height="34"></button>
+      <button type="button" class="icon-swatch" aria-pressed="false" title="Electric Dusk"><img src="icons/dusk.svg" alt="Electric Dusk" width="34" height="34"></button>
+      <button type="button" class="icon-swatch" aria-pressed="false" title="Sunset Wave"><img src="icons/sunset.svg" alt="Sunset Wave" width="34" height="34"></button>
+      <button type="button" class="icon-swatch" aria-pressed="false" title="Neo-Neon Deep"><img src="icons/neon.svg" alt="Neo-Neon Deep" width="34" height="34"></button>
+      <button type="button" class="icon-swatch" aria-pressed="false" title="Forest Sparks"><img src="icons/forest.svg" alt="Forest Sparks" width="34" height="34"></button>
+      <button type="button" class="icon-swatch" aria-pressed="false" title="Tech Mineral"><img src="icons/mineral.svg" alt="Tech Mineral" width="34" height="34"></button>
+      <button type="button" class="icon-swatch" aria-pressed="false" title="Cyber Zenith"><img src="icons/zenith.svg" alt="Cyber Zenith" width="34" height="34"></button>
     </div>
   </div>
-</section>
-
+</div>
 
 <section id="why">
   <div class="wrap">
@@ -539,92 +658,93 @@
     </div>
     <div class="story-grid">
       <div class="story" style="--c:var(--blue)"><div class="story-num">01</div><b>You talk faster than you type.</b><p>Dictate a note and get text back, with nothing sent off the phone to produce it.</p></div>
-      <div class="story" style="--c:var(--teal)"><div class="story-num">02</div><b>Note apps have burned you before.</b><p>Every note is saved as a normal text file on your phone. Even if you delete <i class="app">ANotes</i> one day, your notes stay, and any text app can open them.</p></div>
-      <div class="story" style="--c:var(--purple)"><div class="story-num">03</div><b>Most voice apps send your voice to their servers.</b><p>Once it's there, you can't check whether it's kept or used to train their AI. <i class="app">ANotes</i> has no account, no cloud sync*, and no analytics — your voice becomes text on your phone.</p><span class="story-note">* Optional backup to your own Google Drive is coming, encrypted on the phone before it leaves.</span></div>
-      <div class="story" style="--c:var(--coral)"><div class="story-num">04</div><b>Transcripts get words wrong.</b><p>The original recording is kept next to the transcript, so you can play back what you actually said — and it stays ready to be transcribed again as better speech models arrive.</p></div>
+      <div class="story" style="--c:var(--teal)"><div class="story-num">02</div><b>Note apps have burned you before.</b><p>Every note is plain Markdown, not a locked format. Share it as a .md file and Obsidian, or any text app, opens it.</p></div>
+      <div class="story" style="--c:var(--purple)"><div class="story-num">03</div><b>Most voice apps send your voice to their servers.</b><p>Once it's there, you can't check whether it's kept or used to train their AI. And on a weak signal, cloud dictation stalls. <i class="app">ANotes</i> doesn't need a signal at all.</p></div>
+      <div class="story" style="--c:var(--coral)"><div class="story-num">04</div><b>Transcripts get words wrong.</b><p>The original recording is kept next to the text, so you can hear what you actually said, and transcribe it again as better models arrive.</p></div>
     </div>
 
     <div class="compare">
       <h2 style="margin-top:8px">Compared to the usual options.</h2>
       <div class="compare-grid">
         <div class="compare-card" style="--c:var(--blue)">
-          <div class="compare-line them"><span class="tag">Voice memo apps</span><p>Hand you an audio file and stop there.</p></div>
-          <div class="compare-line us"><span class="tag">ANotes</span><p>Transcribes it into a searchable, organized note — and keeps the audio too.</p></div>
+          <div class="compare-line them"><span class="ctag">Voice memo apps</span><p>Hand you an audio file and stop there.</p></div>
+          <div class="compare-line us"><span class="ctag">ANotes</span><p>Turns it into a searchable note, and keeps the audio too.</p></div>
         </div>
         <div class="compare-card" style="--c:var(--purple)">
-          <div class="compare-line them"><span class="tag">Cloud "AI notes" tools</span><p>Process your voice on a server somewhere.</p></div>
-          <div class="compare-line us"><span class="tag">ANotes</span><p>Never lets what you say or write leave the phone.</p></div>
+          <div class="compare-line them"><span class="ctag">Cloud "AI notes" tools</span><p>Process your voice on a server somewhere.</p></div>
+          <div class="compare-line us"><span class="ctag">ANotes</span><p>Never lets what you say or write leave the phone.</p></div>
         </div>
         <div class="compare-card" style="--c:var(--teal)">
-          <div class="compare-line them"><span class="tag">Most note apps</span><p>Store your writing in their own locked format.</p></div>
-          <div class="compare-line us"><span class="tag">ANotes</span><p>Writes plain Markdown — readable with the app uninstalled, and ready to use in Markdown apps like Obsidian.</p></div>
+          <div class="compare-line them"><span class="ctag">Most note apps</span><p>Keep your writing in their own locked format.</p></div>
+          <div class="compare-line us"><span class="ctag">ANotes</span><p>Writes plain Markdown, ready for Obsidian or any text app.</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 
 <section id="screens">
   <div class="wrap">
     <div class="section-head">
-      <h2>What's actually on screen.</h2>
-      <p>Real frames from the current build, not renders.</p>
+      <h2>From idea to anywhere.</h2>
+      <p>Three steps, from a thought to a message.</p>
     </div>
-    <div class="screens-grid" style="grid-template-columns:repeat(3,1fr);">
-      <div class="screen-card"><div class="glow" style="background:var(--blue)"></div>
-        <div class="device-frame"><img src="screens/home-list-v2.png" alt="ANotes notes list"></div>
-        <div class="screen-cap"><b>Main screen</b><span>Folders and notes on one screen.</span></div></div>
-      <div class="screen-card"><div class="glow" style="background:var(--coral)"></div>
-        <div class="device-frame"><img src="screens/note-recording.png" alt="A note with its read-aloud player and the original recording"></div>
-        <div class="screen-cap"><b>After you record</b><span>Your original voice, kept and playable.</span></div></div>
-      <div class="screen-card"><div class="glow" style="background:var(--teal)"></div>
-        <div class="device-frame"><img src="screens/voice-settings-clean.png" alt="Voice and speech settings, listing offline dictation models to download"></div>
-        <div class="screen-cap"><b>Dictation &amp; voices</b><span>Download only the offline models you need.</span></div></div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-shot"><div class="device-frame"><img src="screens/home-list-v2.png" alt="The ANotes notes list, with Fast note in the bottom bar"></div></div>
+        <b>Have an idea? Tap Fast note.</b>
+        <span>From the app, or from the widget on your home screen.</span>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-shot"><div class="rec-card" aria-hidden="true">
+          <div class="rec-top"><span class="rec-dot"></span>Recording <span class="rec-time">0:42</span></div>
+          <div class="rec-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="rec-text">So the idea is a weekly plan for the garden, starting with the tomatoes<span class="rec-caret"></span></div>
+        </div></div>
+        <b>Just talk. Then leave.</b>
+        <span>Say everything on your mind. The words land in the note, even after you close the app.</span>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-shot"><div class="device-frame"><img src="screens/note-recording.png" alt="A note with its read-aloud bar and the original recording"></div></div>
+        <b>Come back when you have time.</b>
+        <span>Listen, fix a word, add more. Then share it to a messenger, email or an AI tool.</span>
+      </div>
     </div>
 
     <div class="showcase-banner">
-      <div class="voice-toggle-demo" aria-hidden="true">
-        <span class="voice-pill blue"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>Read aloud</span>
-        <span class="voice-toggle-arrow">⇄</span>
-        <span class="voice-pill amber"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18h2V6H7v12zm4 4h2V2h-2v20zm-8-8h2v-4H3v4zm12 4h2V6h-2v12zm4-8v4h2v-4h-2z"/></svg>Your voice</span>
+      <div class="voice-demo" id="voice-demo">
+        <div class="voice-toggle-demo" role="tablist" aria-label="Two ways to listen">
+          <button type="button" class="voice-pill blue" role="tab" aria-selected="true" data-mode="read"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>Read aloud</button>
+          <span class="voice-toggle-arrow" aria-hidden="true">⇄</span>
+          <button type="button" class="voice-pill amber" role="tab" aria-selected="false" data-mode="voice"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 18h2V6H7v12zm4 4h2V2h-2v20zm-8-8h2v-4H3v4zm12 4h2V6h-2v12zm4-8v4h2v-4h-2z"/></svg>Your voice</button>
+        </div>
+        <div class="vd-stage" data-mode="read" aria-hidden="true">
+          <p class="vd-text"><span>Buy</span> <span>seeds</span> <span>on</span> <span>Saturday,</span> <span>then</span> <span>plant</span> <span>the</span> <span>tomatoes</span> <span>by</span> <span>the</span> <span>fence.</span></p>
+          <div class="vd-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
       </div>
-      <p class="showcase-cap"><b>Two voices, one note.</b> Play back what you actually said, or have the app read the text aloud — switch any time. That's what makes ANotes different from a plain note-taker.</p>
-    </div>
-
-    <!-- The app's eight launcher icons, drawn from the same colours and geometry as
-         voice_notes lib/features/app_icon/app_icon.dart (icons/*.svg). -->
-    <div class="icon-block">
-      <h3>Pick its icon.</h3>
-      <p>Eight launcher icons ship with the app. Choose one in Settings → App icon.</p>
-      <div class="icon-big-wrap"><img id="icon-big" class="icon-big" src="icons/sapphire.svg" alt="Sapphire Aura icon" width="144" height="144"><span id="icon-big-name" class="icon-big-name">Sapphire Aura</span></div>
-      <div class="icon-showcase">
-        <button type="button" class="icon-swatch" aria-pressed="true"><img class="tile" src="icons/sapphire.svg" alt="" width="68" height="68"><span class="name">Sapphire Aura</span><span class="fam">default</span></button>
-        <button type="button" class="icon-swatch" aria-pressed="false"><img class="tile" src="icons/mediterranean.svg" alt="" width="68" height="68"><span class="name">Mediterranean Core</span></button>
-        <button type="button" class="icon-swatch" aria-pressed="false"><img class="tile" src="icons/dusk.svg" alt="" width="68" height="68"><span class="name">Electric Dusk</span></button>
-        <button type="button" class="icon-swatch" aria-pressed="false"><img class="tile" src="icons/sunset.svg" alt="" width="68" height="68"><span class="name">Sunset Wave</span></button>
-        <button type="button" class="icon-swatch" aria-pressed="false"><img class="tile" src="icons/neon.svg" alt="" width="68" height="68"><span class="name">Neo-Neon Deep</span></button>
-        <button type="button" class="icon-swatch" aria-pressed="false"><img class="tile" src="icons/forest.svg" alt="" width="68" height="68"><span class="name">Forest Sparks</span></button>
-        <button type="button" class="icon-swatch" aria-pressed="false"><img class="tile" src="icons/mineral.svg" alt="" width="68" height="68"><span class="name">Tech Mineral</span></button>
-        <button type="button" class="icon-swatch" aria-pressed="false"><img class="tile" src="icons/zenith.svg" alt="" width="68" height="68"><span class="name">Cyber Zenith</span></button>
-      </div>
+      <p class="showcase-cap"><b>Two voices, one note.</b> Play back what you actually said, or have the app read the text aloud — switch any time. That's what makes <i class="app">ANotes</i> different from a plain note-taker.</p>
     </div>
   </div>
 </section>
-
 
 <section id="roadmap">
   <div class="wrap">
     <div class="section-head">
       <h2>Roadmap.</h2>
-      <p>What is coming, and why it matters.</p>
+      <p>What just shipped, and what comes next.</p>
     </div>
-    <div class="road-grid">
-      <div class="road"><span class="road-st" style="color:var(--purple)">Next</span><h3>Encrypted backup to Google Drive</h3><p>Optional. Notes are encrypted on the phone before anything leaves it, so Google can't read them.</p></div>
-      <div class="road"><span class="road-st" style="color:var(--teal)">Planned</span><h3>Onboarding</h3><p>A short first-run guide, so a new user finds the mic, the folders and the settings.</p></div>
-      <div class="road"><span class="road-st" style="color:var(--teal)">Planned</span><h3>Public release</h3><p>The first version on Google Play, for anyone.</p></div>
-      <div class="road"><span class="road-st" style="color:var(--ink-faint)">Later</span><h3>iOS app</h3><p>After Android is out and stable.</p></div>
-    </div>
+    <ol class="timeline">
+      <li class="tl done"><span class="tl-when">Shipped · Oct</span><b>Share and text formatting</b><p>Headings, lists and checklists; share as text, audio or .md.</p></li>
+      <li class="tl done"><span class="tl-when">Shipped · Oct</span><b>Read aloud keeps its place</b><p>The sentence being read is marked; pause, and it goes on from there.</p></li>
+      <li class="tl now"><span class="tl-when">Next</span><b>Background recording</b><p>Keep recording after you leave the app, with Pause and Done in the notification and the widget.</p></li>
+      <li class="tl"><span class="tl-when">From November</span><b>Ask your notes</b><p>A local AI on the phone answers questions from your notes, and shows where each answer came from.</p></li>
+      <li class="tl later"><span class="tl-when">Later</span><b>Encrypted Google Drive backup</b><p>Optional, encrypted on the phone before anything leaves it.</p></li>
+      <li class="tl later"><span class="tl-when">Later</span><b>Google Play, then iOS</b><p>The public release on Android first; iOS after it is stable.</p></li>
+    </ol>
   </div>
 </section>
 
@@ -683,6 +803,7 @@
     </div>
     <div class="licence-card">
       <p>Source-available, not open source. Free for personal use, study, research, hobby projects, and for charities, schools, universities and public-research bodies. Selling it, or using it inside a commercial product, needs written permission.</p>
+      <p class="licence-plan"><b>The app will be free.</b> A paid full version is planned, with extra looks such as skins and markers.</p>
       <div class="tags">
         <span class="tag">source-available</span>
         <span class="tag">free for personal use</span>
@@ -705,3 +826,4 @@
 <script src="form.js" defer></script>
 <script src="icons.js" defer></script>
 <script src="carousel.js" defer></script>
+<script src="voice-demo.js" defer></script>
