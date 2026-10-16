@@ -1,6 +1,5 @@
-// "Two voices, one note": Read aloud marks the words one by one;
-// Your voice shows the recording's waveform. It switches by itself until
-// the visitor picks one.
+// "Two voices, one note": Your voice shows the recording's waveform; Read aloud
+// marks the words one by one. It switches by itself until the visitor picks one.
 (function () {
   var demo = document.getElementById('voice-demo');
   if (!demo) return;
@@ -8,7 +7,7 @@
   var stage = demo.querySelector('.vd-stage');
   var words = demo.querySelectorAll('.vd-text span');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var mode = 'read';
+  var mode = 'voice';
   var word = 0;
   var chosen = false;
   var ticks = 0;
@@ -35,7 +34,7 @@
     t.addEventListener('click', function () { chosen = true; show(t.dataset.mode); });
   });
 
-  show('read');
+  show('voice');
   if (reduce) return;
   setInterval(function () {
     ticks++;
