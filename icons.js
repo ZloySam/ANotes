@@ -7,10 +7,21 @@
   if (!swatches.length) return;
   var current = 0;
 
+  var preview = document.querySelector('.icon-preview img');
+  var previewName = document.querySelector('.icon-preview-name');
+
   function use(i) {
     current = i;
-    var src = swatches[i].querySelector('img').getAttribute('src');
+    var img = swatches[i].querySelector('img');
+    var src = img.getAttribute('src');
     swatches.forEach(function (s, k) { s.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+    if (preview) {
+      preview.src = src;
+      preview.classList.remove('pop');
+      void preview.offsetWidth; // restart the animation
+      preview.classList.add('pop');
+    }
+    if (previewName) previewName.textContent = img.getAttribute('alt');
     if (logo) {
       logo.src = src;
       logo.classList.remove('spin');
@@ -21,7 +32,11 @@
   }
 
   swatches.forEach(function (sw, i) {
-    sw.addEventListener('click', function () { use(i); });
+    sw.addEventListener('click', function () {
+      use(i);
+      var row = sw.parentNode;
+      row.scrollTo({ left: sw.offsetLeft - (row.clientWidth - sw.offsetWidth) / 2, behavior: 'smooth' });
+    });
   });
 
   if (logo) {
