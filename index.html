@@ -619,6 +619,39 @@
   .faq[open] summary::after { transform: rotate(45deg); }
   .faq summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
   .faq p { color: var(--ink-muted); font-size: 14.5px; padding-bottom: 16px; margin: 0; }
+
+  /* 25 Oct, round 2 */
+  .hero-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 18px 0 0; padding: 0; font-size: 14.5px; color: var(--ink-muted); }
+  .hero-facts li { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-facts li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+  .leaves { margin-top: 28px; }
+  .leaves h3 { font-size: 20px; margin: 0 0 14px; }
+  .leaves-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 820px) { .leaves-grid { grid-template-columns: 1fr; } }
+  .leave { border: 1px solid var(--border); border-top: 3px solid var(--c); border-radius: 14px; background: var(--surface); padding: 16px; }
+  .leave-tag { display: block; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--c); margin-bottom: 6px; }
+  .leave b { display: block; font-size: 15.5px; margin-bottom: 4px; }
+  .leave p { color: var(--ink-muted); font-size: 14px; margin: 0; }
+  .leaves-note { margin-top: 10px; font-size: 13px; color: var(--ink-faint); }
+  .for-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  @media (max-width: 1000px) { .for-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .for-grid { grid-template-columns: 1fr; } }
+  .for { border: 1px solid var(--border); border-left: 3px solid var(--c); border-radius: 14px; background: var(--surface); padding: 16px; }
+  .for b { display: block; font-size: 15.5px; margin-bottom: 6px; }
+  .for p { color: var(--ink-muted); font-size: 14px; margin: 0; }
+  .whatsnew { border: 1px solid var(--border); border-radius: 16px; background: var(--surface); padding: 18px 20px; margin-bottom: 36px; }
+  .wn-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 10px; }
+  .wn-tag { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--green); }
+  .wn-head a { margin-left: auto; font-size: 14px; font-weight: 600; color: var(--blue); text-decoration: none; }
+  .wn-head a:hover { text-decoration: underline; }
+  .whatsnew ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+  .whatsnew li { color: var(--ink-muted); font-size: 14.5px; }
+  .whatsnew li b { color: var(--ink); }
+  .alpha { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0 6px; text-align: left; }
+  @media (max-width: 760px) { .alpha { grid-template-columns: 1fr; } }
+  .alpha-item { border: 1px solid var(--border); border-radius: 12px; background: var(--surface); padding: 12px 14px; }
+  .alpha-item b { display: block; font-size: 14.5px; margin-bottom: 3px; }
+  .alpha-item p { margin: 0; font-size: 13.5px; color: var(--ink-muted); }
 </style>
 
 <div class="wrap">
@@ -642,6 +675,7 @@
         <a class="cta-badge" href="#get-it">Be one of the first to try it <span class="sw">→</span></a>
         <span class="cta-secondary">Coming soon · <b>Android first</b></span>
       </div>
+      <ul class="hero-facts" aria-label="At a glance"><li>Free</li><li>No account</li><li>Works with the network off</li></ul>
     </div>
     <div class="hero-devices">
       <div class="device-frame back"><img src="screens/folder-v2.png" alt="A folder open in ANotes, showing the notes inside it"></div>
@@ -672,6 +706,15 @@
       <div class="proof"><span class="proof-tag">made possible by</span><b>On-device voices</b>Downloaded once, then they read aloud with no connection.</div>
       <div class="proof"><span class="proof-tag">made possible by</span><b>Plain Markdown</b>The format Obsidian uses. Send any note there with Share.</div>
       <div class="proof"><span class="proof-tag">made possible by</span><b>Your recording rules</b>Keep the audio forever, or let it clear itself.</div>
+    </div>
+    <div class="leaves">
+      <h3>What leaves your phone. All of it.</h3>
+      <div class="leaves-grid">
+        <div class="leave" style="--c:var(--blue)"><span class="leave-tag">goes online, once</span><b>The models you choose</b><p>Speech and voice models download once, for the languages you pick. After that, nothing needs a connection.</p></div>
+        <div class="leave" style="--c:var(--teal)"><span class="leave-tag">leaves when you share</span><b>What you send</b><p>The note, recording or .md file you share, to the app you pick. Only then, and only that.</p></div>
+        <div class="leave" style="--c:var(--green)"><span class="leave-tag">never leaves</span><b>Everything else</b><p>Your notes, your recordings, what you say. No account, no sync, no analytics.</p></div>
+      </div>
+      <p class="leaves-note">This website's form is separate: see "What happens to your email" below it.</p>
     </div>
     <p class="privacy-safe"><b>Built not to lose a word.</b> Saving never deletes a note, and Undo puts back only what it changed. Before adding anything new, we spent a week making sure of it.</p>
     <p class="privacy-next"><b>Later: optional backup to your own Google Drive.</b> Notes are encrypted on the phone with a passphrase only you know, before anything leaves it — so Google can't read them, and neither can anyone without that passphrase.</p>
@@ -752,6 +795,22 @@
   </div>
 </div>
 
+<section id="for">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Made for people who…</h2>
+      <p>Who we built <i class="app">ANotes</i> for first.</p>
+    </div>
+    <div class="for-grid">
+      <div class="for" style="--c:var(--blue)"><b>Think out loud.</b><p>Ideas come faster than you can type. Talk, and the text is there.</p></div>
+      <div class="for" style="--c:var(--purple)"><b>Find typing hard.</b><p>ADHD, RSI or dyslexia: speak your notes in, and have them read back out.</p></div>
+      <div class="for" style="--c:var(--coral)"><b>Would rather listen.</b><p>Hear any note on a walk, and bookmark the place you stopped.</p></div>
+      <div class="for" style="--c:var(--green)"><b>Work where the signal drops.</b><p>Field work, travel, a basement. Nothing here needs a connection.</p></div>
+      <div class="for" style="--c:var(--teal)"><b>Keep notes in Obsidian.</b><p>Plain Markdown, ready to share into your vault.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="why">
   <div class="wrap">
     <div class="section-head">
@@ -789,7 +848,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>From idea to anywhere.</h2>
-      <p>Three steps, from a thought to a message.</p>
+      <p>Capture it, listen back, find it later.</p>
     </div>
     <div class="flow">
       <div class="flow-step">
@@ -869,6 +928,14 @@
       <h2>Roadmap.</h2>
       <p>What just shipped, and the problems we solve next.</p>
     </div>
+    <div class="whatsnew">
+      <div class="wn-head"><span class="wn-tag">What's new</span><b>1.62 · 19 October 2026</b><a href="changelog.html">All changes →</a></div>
+      <ul>
+        <li><b>Bookmarks.</b> Mark a sentence while a note reads aloud, and come back to it days later.</li>
+        <li><b>One page for every bookmark.</b> Rename, delete or share them in one place.</li>
+        <li><b>Built not to lose a word.</b> Saving never deletes a note, and Undo puts back only what it changed.</li>
+      </ul>
+    </div>
     <ol class="timeline">
       <li class="tl done"><span class="tl-when">Shipped</span><b>Notes that look the way you think</b><p>Structure a note as you write it, and send it anywhere.</p></li>
       <li class="tl done"><span class="tl-when">Shipped</span><b>Listen without losing your place</b><p>Stop reading at any moment, bookmark a sentence, and carry on days later.</p></li>
@@ -889,7 +956,7 @@
     <div class="faq-list">
       <details class="faq"><summary>Does anything leave my phone?</summary><p>Your notes and recordings, never. The app goes online only to download the speech and voice models you choose. A note leaves the phone when you share it, and only then.</p></details>
       <details class="faq"><summary>Does it work without a signal?</summary><p>Yes. Once your models are downloaded, dictation, read aloud, storage and search all work in airplane mode.</p></details>
-      <details class="faq"><summary>Which languages does it speak?</summary><p>You pick dictation and read-aloud models from the built-in library. Nothing is preinstalled, so the phone holds only the languages you need.</p></details>
+      <details class="faq"><summary>Which languages does it speak?</summary><p>Dictation covers 25 languages with one model, and more with a second. Read-aloud voices speak English, Spanish, French, German, Portuguese, Hindi, Russian and Ukrainian. Nothing is preinstalled: you download only the languages you need.</p></details>
       <details class="faq"><summary>How is it different from a recorder or a cloud AI notes app?</summary><p>A recorder gives you an audio file. A cloud app turns it into text on its servers, usually with an account. <i class="app">ANotes</i> does the work on the phone and keeps the audio next to the text.</p></details>
       <details class="faq"><summary>Can I take my notes elsewhere?</summary><p>Every note is plain Markdown, the format Obsidian uses. Share it as text, as a .md file or as audio, to any app.</p></details>
       <details class="faq"><summary>What will it cost, and when can I get it?</summary><p>The app will be free; a paid full version is planned, with extra looks. It is in alpha on Android now, then Google Play, then iPhone. Leave your email below to hear once it's out.</p></details>
@@ -901,6 +968,12 @@
   <div class="get-it-inner">
     <h2 class="display" style="margin-top:18px;">Coming soon.</h2>
     <p><i class="app">ANotes</i> is in alpha testing right now. Leave your email and you'll get one message when it's out — or send us a question.</p>
+
+    <div class="alpha">
+      <div class="alpha-item"><b>What alpha means</b><p>We use it every day, and it changes every week. Expect rough edges, never a lost note.</p></div>
+      <div class="alpha-item"><b>Found a bug?</b><p>Tell us in the form below: your phone, what you did, what happened.</p></div>
+      <div class="alpha-item"><b>What you need</b><p>An Android phone, and Wi-Fi once to download the models you choose.</p></div>
+    </div>
 
     <form id="signup" class="signup" method="post" action="#" novalidate>
       <label for="su-email">Email</label>

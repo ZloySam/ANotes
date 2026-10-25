@@ -1,0 +1,165 @@
+<title>ANotes · What's new</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- What this page may load or talk to. connect-src is the only place the signup
+     form may send data; if the endpoint in form.js ever moves, change it here too. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://n8n.anotes.tech; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<!-- Fonts are served from fonts/ on this site, so visitors never contact Google. -->
+<link rel="preload" href="fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+<style>
+  /* Self-hosted fonts (SIL Open Font License; see fonts/OFL-*.txt). */
+  @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap;
+    src: url(fonts/ibm-plex-mono-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap;
+    src: url(fonts/ibm-plex-mono-400-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap;
+    src: url(fonts/ibm-plex-mono-500-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap;
+    src: url(fonts/ibm-plex-mono-500-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap;
+    src: url(fonts/ibm-plex-mono-600-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap;
+    src: url(fonts/ibm-plex-mono-600-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(fonts/public-sans-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(fonts/public-sans-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'Sora'; font-style: normal; font-weight: 400 800; font-display: swap;
+    src: url(fonts/sora-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Sora'; font-style: normal; font-weight: 400 800; font-display: swap;
+    src: url(fonts/sora-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  :root {
+    --bg: #faf9ff;
+    --surface: #ffffff;
+    --surface-2: #f3f1fb;
+    --ink: #191527;
+    --ink-muted: #5c5570;
+    --ink-faint: #948da8;
+    --border: #e6e2f4;
+
+    --blue: #2196f3;   --blue-soft: #e7f3fe;
+    --teal: #0fa89b;   --teal-soft: #e2f7f4;
+    --purple: #8b5cf6; --purple-soft: #f0ebfe;
+    --coral: #ff6b57;  --coral-soft: #ffece9;
+    --green: #23ab5c;  --green-soft: #e5f7eb;
+    --amber: #b45309;  --amber-soft: #fdf0dc;
+
+    --code-bg: #17132a;
+    --code-text: #d9e9ff;
+    --code-key: #8fd0ff;
+    --code-muted: #6f6790;
+    --shadow-sm: 0 1px 2px rgba(25,21,39,0.06);
+    --shadow-md: 0 12px 28px -14px rgba(25,21,39,0.28);
+    --shadow-lg: 0 24px 60px -20px rgba(25,21,39,0.32);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #100e1a; --surface: #181526; --surface-2: #1f1b32;
+      --ink: #f1edfb; --ink-muted: #b3aac9; --ink-faint: #786f91;
+      --border: #2c2745;
+      --blue: #5eb0f7;   --blue-soft: #1b2c40;
+      --teal: #45ddce;   --teal-soft: #10312e;
+      --purple: #ab90fb; --purple-soft: #2a2149;
+      --coral: #ff9285;  --coral-soft: #3a2130;
+      --green: #4fdb8a;  --green-soft: #143726;
+      --amber: #f5a742;  --amber-soft: #3a2a12;
+      --code-bg: #0c0a15; --code-text: #d9e9ff; --code-key: #8fd0ff; --code-muted: #5a5478;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.4); --shadow-md: 0 12px 28px -14px rgba(0,0,0,0.55); --shadow-lg: 0 24px 60px -20px rgba(0,0,0,0.65);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #100e1a; --surface: #181526; --surface-2: #1f1b32;
+    --ink: #f1edfb; --ink-muted: #b3aac9; --ink-faint: #786f91;
+    --border: #2c2745;
+    --blue: #5eb0f7;   --blue-soft: #1b2c40;
+    --teal: #45ddce;   --teal-soft: #10312e;
+    --purple: #ab90fb; --purple-soft: #2a2149;
+    --coral: #ff9285;  --coral-soft: #3a2130;
+    --green: #4fdb8a;  --green-soft: #143726;
+    --amber: #f5a742;  --amber-soft: #3a2a12;
+    --code-bg: #0c0a15; --code-text: #d9e9ff; --code-key: #8fd0ff; --code-muted: #5a5478;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.4); --shadow-md: 0 12px 28px -14px rgba(0,0,0,0.55); --shadow-lg: 0 24px 60px -20px rgba(0,0,0,0.65);
+  }
+
+  * { box-sizing: border-box; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+  html { overflow-x: hidden; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  .display { font-family: "Sora", "Public Sans", sans-serif; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: 24px; position: relative; }
+  h1, h2, h3 { text-wrap: balance; font-weight: 700; margin: 0; font-family: "Sora", sans-serif; }
+  p { margin: 0; }
+  a { color: var(--blue); }
+  header.top { border-bottom: 1px solid var(--border); background: var(--surface); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-family: "Sora", sans-serif; font-weight: 700; font-size: 18px; color: var(--ink); text-decoration: none; }
+  .back { font-size: 14px; font-weight: 600; text-decoration: none; }
+  main .wrap { max-width: 820px; padding-block: 56px 80px; }
+  .lead h1 { font-size: clamp(30px, 5vw, 44px); letter-spacing: -0.01em; }
+  .lead p { color: var(--ink-muted); margin-top: 12px; font-size: 17px; max-width: 60ch; }
+  .entries { margin-top: 40px; display: grid; gap: 0; }
+  .entry { display: grid; grid-template-columns: 170px 1fr; gap: 24px; padding: 26px 0; border-top: 1px solid var(--border); }
+  .entry h2 { font-size: 20px; }
+  .entry ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 6px; color: var(--ink-muted); }
+  .when { display: flex; flex-direction: column; gap: 4px; }
+  .ver { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 15px; color: var(--green); }
+  .date { font-size: 13.5px; color: var(--ink-faint); }
+  .entry.testing .ver { color: var(--purple); }
+  .entry.testing { background: var(--purple-soft); border-radius: 14px; padding: 22px; border-top: 0; margin-bottom: 8px; }
+  footer { border-top: 1px solid var(--border); padding: 24px 0 40px; color: var(--ink-faint); font-size: 13px; }
+  @media (max-width: 640px) { .entry { grid-template-columns: 1fr; gap: 8px; } }
+</style>
+<body>
+<header class="top"><div class="wrap"><a class="logo" href="./"><img src="logo.svg" alt="" width="28" height="28">ANotes</a><a class="back" href="./">← Back to the site</a></div></header>
+<main><div class="wrap">
+  <div class="lead">
+    <h1>What's new.</h1>
+    <p>Every release of the <i>ANotes</i> alpha, newest first, in plain words: what you will notice, not what we rewrote.</p>
+  </div>
+  <div class="entries">
+  <article class="entry testing">
+    <div class="when"><span class="ver">In testing</span><span class="date">now</span></div>
+    <div><h2>AI that runs on the phone</h2><ul><li>Tidy a dictation, make a checklist, sum up or translate a note, with the network off.</li><li>On our test phones now. It ships when every check passes.</li></ul></div>
+  </article>
+  <article class="entry">
+    <div class="when"><span class="ver">1.62</span><span class="date">19 October 2026</span></div>
+    <div><h2>Bookmarks, and a promise: nothing is lost</h2><ul><li>Bookmark a sentence while a note reads aloud, and come back to it days later.</li><li>One Bookmarks page for every note: rename, delete or share them.</li><li>Saving never deletes a note, and Undo puts back only what it changed. We spent a week checking every way a note could be lost before adding anything new.</li></ul></div>
+  </article>
+  <article class="entry">
+    <div class="when"><span class="ver">1.61</span><span class="date">13–18 October 2026</span></div>
+    <div><h2>Read aloud keeps your place</h2><ul><li>The sentence being read is marked, and the page follows it. Pause, leave, and carry on from the same spot.</li><li>Dictation works with Bluetooth headphones, even ones you connect mid-recording.</li><li>Name a note or a folder by voice.</li><li>Fast note opens straight into the note, ready for your voice or your keyboard.</li></ul></div>
+  </article>
+  <article class="entry">
+    <div class="when"><span class="ver">1.60</span><span class="date">13 October 2026</span></div>
+    <div><h2>Formatting and sharing</h2><ul><li>Headings, bold, lists and checklists from a bar on the keyboard.</li><li>Share a note as text, as its recordings or as a .md file.</li><li>Text shared from any app becomes a note.</li></ul></div>
+  </article>
+  <article class="entry">
+    <div class="when"><span class="ver">1.59</span><span class="date">10 October 2026</span></div>
+    <div><h2>One way to do things</h2><ul><li>Every menu works the same way, and the player keeps its buttons together.</li></ul></div>
+  </article>
+  <article class="entry">
+    <div class="when"><span class="ver">1.58</span><span class="date">9 October 2026</span></div>
+    <div><h2>Faster to move around</h2><ul><li>Swipe right on a note's top bar to go back.</li><li>The Trash has its place in Storage.</li></ul></div>
+  </article>
+  <article class="entry">
+    <div class="when"><span class="ver">1.56</span><span class="date">7 October 2026</span></div>
+    <div><h2>Dictation learns your words</h2><ul><li>My words: teach dictation the names and terms you use.</li><li>Details on every note: its folder, dates, words and recordings.</li><li>Search finds notes in the Archive and the Trash too.</li></ul></div>
+  </article>
+  <article class="entry">
+    <div class="when"><span class="ver">1.51</span><span class="date">4 October 2026</span></div>
+    <div><h2>Folders and recordings, kept whole</h2><ul><li>A folder goes to the Trash whole, and comes back whole.</li><li>A note can hold more than one recording.</li></ul></div>
+  </article>
+  </div>
+</div></main>
+<footer><div class="wrap">ANotes alpha · Android · this page is updated with every release.</div></footer>
+</body>
