@@ -91,7 +91,8 @@
   }
   a { color: var(--blue); }
   .wrap { max-width: 760px; margin: 0 auto; padding: 32px 24px 72px; }
-  .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 40px; }
+  .top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 40px; }
+  .back { white-space: nowrap; }
   .logo { display: inline-flex; align-items: center; gap: 10px; font-family: "Sora", sans-serif; font-weight: 700; font-size: 17px; color: var(--ink); text-decoration: none; }
   .back { font-size: 14px; color: var(--ink-muted); text-decoration: none; }
   .back:hover { color: var(--ink); text-decoration: underline; }
@@ -119,7 +120,7 @@
   </div>
 
   <h1>Privacy policy</h1>
-  <p class="meta">version 1.0 · last updated 25 October 2026</p>
+  <p class="meta">version 1.1 · last updated 26 October 2026</p>
 
   <div class="short">
     <h2 style="margin-top:0">The short version</h2>
@@ -171,6 +172,15 @@
     <li>To see or delete what is stored about you, send the form again from the same address and say so.</li>
   </ul>
 
+  <h2>Your rights in the EU and the UK (GDPR)</h2>
+  <p>The app itself collects no personal data, so the GDPR concerns only this website and its form. For those, the developer of <i class="app">ANotes</i> is the controller: the one who decides how the data is used.</p>
+  <ul>
+    <li><b>Why we may keep it.</b> Your email and message: because you sent them and asked for an answer or a release notice (your consent, and the steps you asked for). Access logs and the in-memory IP check: our legitimate interest in keeping the site and form working and free of spam.</li>
+    <li><b>Where it is kept.</b> On the developer's private server and in Telegram, as described above. Some of it, such as the spam check, may be handled outside the EU, including in the United States.</li>
+    <li><b>Your rights.</b> You can ask to see, correct or delete what is stored about you, to get a copy of it, or to object to its use, and you can withdraw your consent at any time. Send the form again from the same address and say so; we answer within one month.</li>
+    <li><b>Complaints.</b> You can also complain to the data protection authority in your country.</li>
+  </ul>
+
   <h2>Coming later</h2>
   <p>These are planned and not in the app yet. This page will be updated, with a new date, before any of them ships:</p>
   <ul>
@@ -188,6 +198,7 @@
 
   <footer>
     <a href="../">anotes.tech</a>
+    <a href="../terms/">Terms</a>
     <a href="../#licence">Licence</a>
     <a href="../#questions">Common questions</a>
   </footer>
