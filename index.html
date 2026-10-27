@@ -596,6 +596,67 @@
   .pl-speed { border: 1px solid #c4c6d0; border-radius: 12px; padding: 1px 7px; font-size: 11.5px; }
   .pl-more { width: 20px; text-align: center; color: #44474e; font-size: 16px; }
   @media (prefers-reduced-motion: reduce) { .widget-mic, .tap-hand, .rec-marker, .rec-fab, .dots i { animation: none; } }
+
+  /* 24 Oct: icon strip in one row that scrolls sideways (tg-1207) */
+  .icon-strip-row { flex-wrap: nowrap; justify-content: center; gap: 18px; }
+  .icon-strip-tiles { flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; padding: 4px 2px; min-width: 0; }
+  .icon-strip-tiles::-webkit-scrollbar { display: none; }
+  .icon-strip .icon-swatch { flex: 0 0 auto; scroll-snap-align: center; }
+  /* the tapped icon, shown big (tg-314) */
+  .icon-preview { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
+  .icon-preview img { width: 72px; height: 72px; border-radius: 18px; box-shadow: var(--shadow-md); }
+  .icon-preview img.pop { animation: icon-pop .35s ease; }
+  @keyframes icon-pop { 0% { transform: scale(.7); } 70% { transform: scale(1.08); } 100% { transform: scale(1); } }
+  .icon-preview-txt { display: flex; flex-direction: column; gap: 2px; }
+  .icon-preview-cap { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-faint); }
+  .icon-preview-name { font-size: 15px; white-space: nowrap; }
+  @media (max-width: 640px) {
+    .icon-strip-row { flex-direction: column; align-items: stretch; gap: 12px; }
+    .icon-preview { justify-content: center; }
+  }
+  @media (prefers-reduced-motion: reduce) { .icon-preview img.pop { animation: none; } }
+  /* the swap arrow sits between the two voices on narrow screens (tg-1209) */
+  @media (max-width: 520px) {
+    .voice-toggle-demo { flex-direction: column; gap: 8px; }
+    .voice-toggle-arrow { transform: rotate(90deg); }
+  }
+  /* privacy: no-data-loss line */
+  #privacy .privacy-safe { margin-top: 24px; padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--ink); }
+  #privacy .privacy-safe b { font-weight: 700; }
+
+  /* 25 Oct, round 2 */
+  .hero-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 18px 0 0; padding: 0; font-size: 14.5px; color: var(--ink-muted); }
+  .hero-facts li { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-facts li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+  .leaves { margin-top: 28px; }
+  .leaves h3 { font-size: 20px; margin: 0 0 14px; }
+  .leaves-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 820px) { .leaves-grid { grid-template-columns: 1fr; } }
+  .leave { border: 1px solid var(--border); border-top: 3px solid var(--c); border-radius: 14px; background: var(--surface); padding: 16px; }
+  .leave-tag { display: block; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--c); margin-bottom: 6px; }
+  .leave b { display: block; font-size: 15.5px; margin-bottom: 4px; }
+  .leave p { color: var(--ink-muted); font-size: 14px; margin: 0; }
+  .leaves-note { margin-top: 10px; font-size: 13px; color: var(--ink-faint); }
+  .for-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  @media (max-width: 1000px) { .for-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .for-grid { grid-template-columns: 1fr; } }
+  .for { border: 1px solid var(--border); border-left: 3px solid var(--c); border-radius: 14px; background: var(--surface); padding: 16px; }
+  .for b { display: block; font-size: 15.5px; margin-bottom: 6px; }
+  .for p { color: var(--ink-muted); font-size: 14px; margin: 0; }
+  .whatsnew { border: 1px solid var(--border); border-radius: 16px; background: var(--surface); padding: 18px 20px; margin-bottom: 36px; }
+  .wn-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 10px; }
+  .wn-tag { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--green); }
+  .wn-head a { margin-left: auto; font-size: 14px; font-weight: 600; color: var(--blue); text-decoration: none; }
+  .wn-head a:hover { text-decoration: underline; }
+  .whatsnew ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+  .whatsnew li { color: var(--ink-muted); font-size: 14.5px; }
+  .whatsnew li b { color: var(--ink); }
+  .alpha { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0 6px; text-align: left; }
+  @media (max-width: 760px) { .alpha { grid-template-columns: 1fr; } }
+  .alpha-item { border: 1px solid var(--border); border-radius: 12px; background: var(--surface); padding: 12px 14px; }
+  .alpha-item b { display: block; font-size: 14.5px; margin-bottom: 3px; }
+  .alpha-item p { margin: 0; font-size: 13.5px; color: var(--ink-muted); }
+  .story ul { margin: 6px 0 0; padding-left: 18px; color: var(--ink-muted); font-size: 14.5px; display: grid; gap: 4px; }
 </style>
 
 <div class="wrap">
@@ -604,7 +665,7 @@
       <img class="logo-img" src="logo.svg" alt="" width="32" height="32">
       ANotes
     </div>
-    <div class="status-pill"><b>alpha</b> · android only · v1.61</div>
+    <div class="status-pill"><b>alpha</b> · android only · v1.62</div>
   </div>
 </div>
 
@@ -619,6 +680,7 @@
         <a class="cta-badge" href="#get-it">Be one of the first to try it <span class="sw">→</span></a>
         <span class="cta-secondary">Coming soon · <b>Android first</b></span>
       </div>
+      <ul class="hero-facts" aria-label="At a glance"><li>Free</li><li>No account</li><li>Works with the network off</li></ul>
     </div>
     <div class="hero-devices">
       <div class="device-frame back"><img src="screens/folder-v2.png" alt="A folder open in ANotes, showing the notes inside it"></div>
@@ -647,10 +709,20 @@
     <div class="proof-grid">
       <div class="proof"><span class="proof-tag">made possible by</span><b>Offline dictation</b>Speech becomes text on the phone's own processor.</div>
       <div class="proof"><span class="proof-tag">made possible by</span><b>On-device voices</b>Downloaded once, then they read aloud with no connection.</div>
-      <div class="proof"><span class="proof-tag">made possible by</span><b>Plain Markdown</b>The format Obsidian uses. Send any note there with Share.</div>
+      <div class="proof"><span class="proof-tag">made possible by</span><b>Plain Markdown</b>Any Markdown app can open your notes. Send them there with Share.</div>
       <div class="proof"><span class="proof-tag">made possible by</span><b>Your recording rules</b>Keep the audio forever, or let it clear itself.</div>
     </div>
-    <p class="privacy-next"><b>Coming next: optional backup to your own Google Drive.</b> Notes are encrypted on the phone with a passphrase only you know, before anything leaves it — so Google can't read them, and neither can anyone without that passphrase.</p>
+    <div class="leaves">
+      <h3>What leaves your phone. All of it.</h3>
+      <div class="leaves-grid">
+        <div class="leave" style="--c:var(--blue)"><span class="leave-tag">goes online, once</span><b>The models you choose</b><p>Speech and voice models download once, for the languages you pick. After that, nothing needs a connection.</p></div>
+        <div class="leave" style="--c:var(--teal)"><span class="leave-tag">leaves when you share</span><b>What you send</b><p>The note, recording or .md file you share, to the app you pick. Only then, and only that.</p></div>
+        <div class="leave" style="--c:var(--green)"><span class="leave-tag">never leaves</span><b>Everything else</b><p>Your notes, your recordings, what you say. No account, no sync, no analytics.</p></div>
+      </div>
+      <p class="leaves-note">This website's form is separate. The details are in the <a href="privacy/">privacy policy</a>.</p>
+    </div>
+    <p class="privacy-safe"><b>Built not to lose a word.</b> Saving never deletes a note, and Undo puts back only what it changed. Before adding anything new, we spent a week making sure of it.</p>
+    <p class="privacy-next"><b>Later: optional backup to your own Google Drive.</b> Notes are encrypted on the phone with a passphrase only you know, before anything leaves it — so Google can't read them, and neither can anyone without that passphrase.</p>
   </div>
 </section>
 
@@ -675,6 +747,7 @@
           <li>Tap <span class="ui ui-purple" title="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span> and the note reads itself, with on-device voices.</li>
           <li>Start at the cursor, or only the part you selected.</li>
           <li>The sentence being read is marked, and the page follows it.</li>
+          <li>Bookmark a sentence, and come back to it days later.</li>
         </ul></div>
       <div class="feature"><span class="f-label" style="color:var(--coral)">Your recordings</span>
         <div class="feature-title">Your voice, kept. Your rules.</div>
@@ -688,6 +761,7 @@
         <ul class="f-list">
           <li>Tap <span class="ui ui-green" title="Fast note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg></span> on your home screen and just talk.</li>
           <li>It's saved before the thought slips away.</li>
+          <li>Name a note or a folder by voice, too.</li>
           <li>Prefer typing? There is a text widget too.</li>
         </ul></div>
       <div class="feature"><span class="f-label" style="color:var(--teal)">Languages</span>
@@ -712,6 +786,7 @@
      voice_notes lib/features/app_icon/app_icon.dart (icons/*.svg). -->
 <div class="icon-strip" aria-label="App icons">
   <div class="wrap icon-strip-row">
+    <div class="icon-preview" aria-live="polite"><img src="icons/sapphire.svg" alt="" width="72" height="72"><span class="icon-preview-txt"><span class="icon-preview-cap">App icon</span><b class="icon-preview-name">Sapphire Aura</b></span></div>
     <div class="icon-strip-tiles">
       <button type="button" class="icon-swatch" aria-pressed="true" title="Sapphire Aura (default)"><img src="icons/sapphire.svg" alt="Sapphire Aura" width="34" height="34"></button>
       <button type="button" class="icon-swatch" aria-pressed="false" title="Mediterranean Core"><img src="icons/mediterranean.svg" alt="Mediterranean Core" width="34" height="34"></button>
@@ -725,6 +800,22 @@
   </div>
 </div>
 
+<section id="for">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Made for people who…</h2>
+      <p>Who we built <i class="app">ANotes</i> for first.</p>
+    </div>
+    <div class="for-grid">
+      <div class="for" style="--c:var(--blue)"><b>Think out loud.</b><p>Ideas come faster than you can type. Talk, and the text is there.</p></div>
+      <div class="for" style="--c:var(--purple)"><b>Find typing hard.</b><p>ADHD, RSI or dyslexia: speak your notes in, and have them read back out.</p></div>
+      <div class="for" style="--c:var(--coral)"><b>Would rather listen.</b><p>Hear any note on a walk, and bookmark the place you stopped.</p></div>
+      <div class="for" style="--c:var(--green)"><b>Work where the signal drops.</b><p>Field work, travel, a basement. Nothing here needs a connection.</p></div>
+      <div class="for" style="--c:var(--teal)"><b>Keep notes in Obsidian.</b><p>Plain Markdown, ready to share into your vault.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="why">
   <div class="wrap">
     <div class="section-head">
@@ -733,8 +824,8 @@
     </div>
     <div class="story-grid">
       <div class="story" style="--c:var(--blue)"><div class="story-num">01</div><b>You talk faster than you type.</b><p>Dictate a note and get text back, with nothing sent off the phone to produce it.</p></div>
-      <div class="story" style="--c:var(--teal)"><div class="story-num">02</div><b>Note apps have burned you before.</b><p>Every note is plain Markdown, the same format Obsidian uses, not a locked format of our own. Send any note to Obsidian, or anywhere else, with Share.</p></div>
-      <div class="story" style="--c:var(--purple)"><div class="story-num">03</div><b>Most voice apps send your voice to their servers.</b><p>Once it's there, you can't check whether it's kept or used to train their AI. And on a weak signal, cloud dictation stalls. <i class="app">ANotes</i> doesn't need a signal at all.</p></div>
+      <div class="story" style="--c:var(--teal)"><div class="story-num">02</div><b>Your notes, right when you need them.</b><p>On a train, in a basement, abroad without data: a cloud notes app keeps you waiting while it loads, or doesn't open at all. In <i class="app">ANotes</i> every note is already on your phone, so it opens at once, signal or not.</p></div>
+      <div class="story" style="--c:var(--purple)"><div class="story-num">03</div><b>Your voice stays yours.</b><ul><li>Most voice apps upload your voice to their servers.</li><li>Once it's there, you can't check whether it's kept, shared or used to train their AI.</li><li><i class="app">ANotes</i> turns speech into text on the phone. Your voice never leaves it.</li></ul></div>
       <div class="story" style="--c:var(--coral)"><div class="story-num">04</div><b>Transcripts get words wrong.</b><p>The original recording is kept next to the text, so you can hear what you actually said, and transcribe it again as better models arrive.</p></div>
     </div>
 
@@ -746,12 +837,12 @@
           <div class="compare-line us"><span class="ctag">ANotes</span><p>Turns it into a searchable note, and keeps the audio too.</p></div>
         </div>
         <div class="compare-card" style="--c:var(--purple)">
-          <div class="compare-line them"><span class="ctag">Cloud "AI notes" tools</span><p>Process your voice on a server somewhere.</p></div>
-          <div class="compare-line us"><span class="ctag">ANotes</span><p>Never lets what you say or write leave the phone.</p></div>
+          <div class="compare-line them"><span class="ctag">Cloud "AI notes" tools</span><p>Process your voice on a server, and often count your free minutes.</p></div>
+          <div class="compare-line us"><span class="ctag">ANotes</span><p>Never lets what you say or write leave the phone, so there are no minutes to count.</p></div>
         </div>
         <div class="compare-card" style="--c:var(--teal)">
           <div class="compare-line them"><span class="ctag">Most note apps</span><p>Keep your writing in their own locked format.</p></div>
-          <div class="compare-line us"><span class="ctag">ANotes</span><p>Writes plain Markdown, the format Obsidian uses.</p></div>
+          <div class="compare-line us"><span class="ctag">ANotes</span><p>Writes plain Markdown, which any notes app can open.</p></div>
         </div>
       </div>
     </div>
@@ -762,7 +853,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>From idea to anywhere.</h2>
-      <p>Three steps, from a thought to a message.</p>
+      <p>Capture it, listen back, find it later.</p>
     </div>
     <div class="flow">
       <div class="flow-step">
@@ -842,11 +933,19 @@
       <h2>Roadmap.</h2>
       <p>What just shipped, and the problems we solve next.</p>
     </div>
+    <div class="whatsnew">
+      <div class="wn-head"><span class="wn-tag">What's new</span><b>1.62 · 19 October 2026</b><a href="changelog.html">All changes →</a></div>
+      <ul>
+        <li><b>Bookmarks.</b> Mark a sentence while a note reads aloud, and come back to it days later.</li>
+        <li><b>One page for every bookmark.</b> Rename, delete or share them in one place.</li>
+        <li><b>Built not to lose a word.</b> Saving never deletes a note, and Undo puts back only what it changed.</li>
+      </ul>
+    </div>
     <ol class="timeline">
       <li class="tl done"><span class="tl-when">Shipped</span><b>Notes that look the way you think</b><p>Structure a note as you write it, and send it anywhere.</p></li>
-      <li class="tl done"><span class="tl-when">Shipped</span><b>Listen without losing your place</b><p>Stop reading at any moment and carry on from the same spot.</p></li>
-      <li class="tl now"><span class="tl-when">Next</span><b>Never lose a thought mid-sentence</b><p>Keep talking, even when your phone needs you for something else.</p></li>
-      <li class="tl"><span class="tl-when">Coming</span><b>Your notes, working for you</b><p>Find and use what you've already said, without it leaving your phone.</p></li>
+      <li class="tl done"><span class="tl-when">Shipped</span><b>Listen without losing your place</b><p>Stop reading at any moment, bookmark a sentence, and carry on days later.</p></li>
+      <li class="tl now"><span class="tl-when">In testing</span><b>Your notes, working for you</b><p>Tidy, sum up or translate a note with AI that runs on the phone itself, with the network off.</p></li>
+      <li class="tl"><span class="tl-when">Next</span><b>Never lose a thought mid-sentence</b><p>Keep talking, even when your phone needs you for something else.</p></li>
       <li class="tl later"><span class="tl-when">Later</span><b>Safe even if the phone isn't</b><p>A private copy of your notes that only you can open.</p></li>
       <li class="tl later"><span class="tl-when">Later</span><b>On more phones</b><p>Google Play first, then iPhone.</p></li>
     </ol>
@@ -877,7 +976,7 @@
       </details>
       <details>
         <summary>Is it free?</summary>
-        <div><p>Yes, the app will be free. A paid full version is planned, with extra looks such as skins and markers. It will not unlock privacy: no version sends your notes anywhere.</p></div>
+        <div><p>Yes, the app will be free. A paid full version is planned, with extra looks such as skins and markers.</p></div>
       </details>
       <details>
         <summary>Which languages can I dictate in?</summary>
@@ -903,6 +1002,12 @@
   <div class="get-it-inner">
     <h2 class="display" style="margin-top:18px;">Coming soon.</h2>
     <p><i class="app">ANotes</i> is in alpha testing right now. Leave your email and you'll get one message when it's out — or send us a question.</p>
+
+    <div class="alpha">
+      <div class="alpha-item"><b>What alpha means</b><p>We use it every day, and it changes every week. Expect rough edges, never a lost note.</p></div>
+      <div class="alpha-item"><b>Found a bug?</b><p>Use the form below, or <b>Help and support</b> in the app's avatar menu. Say your phone, what you did and what happened.</p></div>
+      <div class="alpha-item"><b>What you need</b><p>An Android phone, and Wi-Fi once to download the models you choose.</p></div>
+    </div>
 
     <form id="signup" class="signup" method="post" action="#" novalidate>
       <label for="su-email">Email</label>
@@ -976,7 +1081,7 @@
       <a href="#licence">Licence</a>
       <a href="#questions">Common questions</a>
     </nav>
-    <div class="footer-stamp"><span class="key">build</span> 1.61.21 · <span class="key">status</span> alpha · <span class="key">stamped</span> 16 October 2026</div>
+    <div class="footer-stamp"><span class="key">build</span> 1.62.6 · <span class="key">status</span> alpha · <span class="key">stamped</span> 24 October 2026</div>
     <p class="footer-help">Help and support: in the app, from the avatar menu.</p>
   </div>
 </footer>
