@@ -121,34 +121,36 @@
   .tlabel { margin-top: 14px; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--purple); }
   .testing-list { border-left: 2px solid var(--purple); padding-left: 16px !important; margin-left: 2px !important; list-style: none; }
   .ver { font-size: 14px; }
+  .ttag { display: inline-block; vertical-align: middle; margin-left: 10px; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--purple); background: var(--purple-soft); border-radius: 100px; padding: 2px 10px; }
+  .entry { padding: 20px 0; }
 </style>
 <body>
 <header class="top"><div class="wrap"><a class="logo" href="./"><img src="logo.svg" alt="" width="28" height="28">ANotes</a><a class="back" href="./">← Back to the site</a></div></header>
 <main><div class="wrap">
   <div class="lead">
     <h1>What's new.</h1>
-    <p>One update a week, newest first, in plain words: what you will notice, not what we rewrote. Items marked <b>In testing</b> are on our test phones and reach you when every check passes.</p>
+    <p>One update a week, newest first. <b>In testing</b> means it is on our test phones and reaches you when every check passes.</p>
   </div>
   <div class="entries">
   <article class="entry">
-    <div class="when"><span class="ver">26 Oct – 1 Nov</span><span class="date">Versions 1.67–1.72</span></div>
-    <div><h2>Nothing gets lost, even in a crash</h2><p class="tlabel">In testing</p><ul class="testing-list"><li>A recording cut off when the app closes, from a crash, a swipe away or a restart, comes back with its note. All of it.</li><li>Undo after every move: into a folder, out of the Archive, back from the Trash.</li><li>A Fold button on the keyboard bar tucks the original text behind one line, after the AI rewrites it.</li><li>Notes breathe a little: more room between lines, and space above each heading.</li><li>Read aloud uses your phone's own voice by default, with nothing extra to download.</li><li>On first start, a short guided setup for the AI, or Later.</li><li>What's new and the open-source licences now live in Settings › About.</li></ul></div>
+    <div class="when"><span class="ver">26 Oct – 1 Nov</span></div>
+    <div><h2>Nothing gets lost <span class="ttag">In testing</span></h2><ul><li>A recording cut short by a crash comes back with its note.</li><li>Undo after every move.</li><li>Notes are easier on the eye.</li></ul></div>
   </article>
   <article class="entry">
-    <div class="when"><span class="ver">19 – 25 Oct</span><span class="date">Versions 1.62–1.66</span></div>
-    <div><h2>Bookmarks, and AI that runs on the phone</h2><ul><li>Bookmark a sentence while a note reads aloud, and come back to it days later.</li><li>One Bookmarks page for every note: rename, delete or share them.</li><li>Saving never deletes a note, and Undo puts back only what it changed. We spent a week checking every way a note could be lost before adding anything new.</li></ul><p class="tlabel">In testing</p><ul class="testing-list"><li>AI on the phone, with the network off: tidy a dictation, make a checklist, sum up, translate, give a title or draft a message.</li><li>Every AI change is one step with Undo. Clean up won't replace your text if it would drop a word.</li><li>Long recordings are summed up in one go, and a talk or lecture gets its own Talk notes.</li><li>Ask a question about a note, and keep the chat as a note of its own.</li></ul></div>
+    <div class="when"><span class="ver">19 – 25 Oct</span></div>
+    <div><h2>Bookmarks, and AI on the phone</h2><ul><li>Bookmark a sentence and come back to it days later.</li><li>Saving never deletes a note.</li><li>In testing: AI that tidies, sums up and translates your notes, with the network off.</li></ul></div>
   </article>
   <article class="entry">
-    <div class="when"><span class="ver">12 – 18 Oct</span><span class="date">Versions 1.60–1.61</span></div>
-    <div><h2>Formatting, sharing, and read aloud that keeps your place</h2><ul><li>Headings, bold, lists and checklists from a bar on the keyboard.</li><li>Share a note as text, as its recordings or as a .md file. Text shared from any app becomes a note.</li><li>The sentence being read is marked, and the page follows it. Pause, leave, and carry on from the same spot.</li><li>Dictation works with Bluetooth headphones, even ones you connect mid-recording.</li><li>Name a note or a folder by voice.</li></ul></div>
+    <div class="when"><span class="ver">12 – 18 Oct</span></div>
+    <div><h2>Read aloud keeps your place</h2><ul><li>Headings, lists and checklists as you type.</li><li>Share any note to any app.</li><li>Pause reading and carry on from the same spot.</li></ul></div>
   </article>
   <article class="entry">
-    <div class="when"><span class="ver">5 – 11 Oct</span><span class="date">Versions 1.56–1.59</span></div>
-    <div><h2>Dictation learns your words</h2><ul><li>My words: teach dictation the names and terms you use, and every new transcription is corrected.</li><li>Details on every note: its folder, dates, words and recordings.</li><li>Search finds notes in the Archive and the Trash too.</li><li>Swipe right on a note's top bar to go back.</li><li>Every menu works the same way.</li></ul></div>
+    <div class="when"><span class="ver">5 – 11 Oct</span></div>
+    <div><h2>Dictation learns your words</h2><ul><li>Teach it the names and terms you use.</li><li>Search finds every note, even archived ones.</li></ul></div>
   </article>
   <article class="entry">
-    <div class="when"><span class="ver">1 – 4 Oct</span><span class="date">Versions 1.49–1.54</span></div>
-    <div><h2>Faster to record, safer to tidy</h2><ul><li>The mic records the moment you tap it, and long recordings are written while you talk.</li><li>Read aloud starts sooner.</li><li>A folder goes to the Trash whole, and comes back whole.</li><li>A note can hold more than one recording.</li><li>A recording with no speech in it says so, with Transcribe again.</li></ul></div>
+    <div class="when"><span class="ver">1 – 4 Oct</span></div>
+    <div><h2>Faster to record</h2><ul><li>Recording starts the moment you tap.</li><li>Long recordings are written while you talk.</li></ul></div>
   </article>
   </div>
 </div></main>
