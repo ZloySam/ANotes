@@ -3,7 +3,7 @@
 (function () {
   var swatches = Array.prototype.slice.call(document.querySelectorAll('.icon-strip .icon-swatch'));
   var logo = document.querySelector('.topbar .logo-img');
-  var favicon = document.querySelector('link[rel="icon"]');
+  var favicon = document.querySelector('link[rel="icon"][type="image/svg+xml"]');
   if (!swatches.length) return;
   var current = 0;
 
