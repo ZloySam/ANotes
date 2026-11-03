@@ -1,13 +1,10 @@
 // Signup / contact form for the "Coming soon" section.
-// Backend contract: anotes-ops HANDOFF.md, "Laptops need to know" (2026-09-26).
-// The checks here are only for the visitor's convenience; the server checks
-// everything again. Both values below are public by design: never put a secret
-// (Turnstile secret key, n8n credentials) in this file.
+// Checks here are for the visitor's convenience only.
 (function () {
   'use strict';
 
   var ENDPOINT = 'https://n8n.anotes.tech/webhook/anotes-form-48511fa6409755fd476d0cab0b261c87';
-  // The Turnstile SITE key (24 characters). Empty = the form stays switched off.
+  // Empty = the form stays switched off.
   var TURNSTILE_SITE_KEY = '0x4AAAAAAFEeEDrE2n_bdVhf';
 
   var form = document.getElementById('signup');
@@ -87,7 +84,6 @@
     var notify = form.elements.notify.checked;
     var message = form.elements.message.value.trim();
 
-    // A bot filled in the hidden field: act as if it worked, send nothing.
     if (form.elements.website.value) {
       form.reset();
       say('Thanks! We got it.', 'ok');
@@ -108,8 +104,6 @@
       return;
     }
 
-    // Form-encoded body and no custom headers: anything else triggers a CORS
-    // preflight, which the server refuses.
     var body = new URLSearchParams();
     body.set('email', email.value.trim());
     body.set('notify', notify ? 'yes' : 'no');
@@ -145,7 +139,6 @@
     }).then(function () {
       clearTimeout(timer);
       sending = false;
-      // A Turnstile token works once; get a fresh one for the next send.
       if (window.turnstile && widgetId !== null) window.turnstile.reset(widgetId);
       button.disabled = true;
     });

@@ -372,7 +372,6 @@
   }
   .signup .signup-check { display: flex; align-items: center; gap: 10px; font-weight: 500; margin-bottom: 6px; }
   .signup-check input { width: 18px; height: 18px; accent-color: #ab90fb; flex-shrink: 0; }
-  /* Off-screen rather than display:none, so simple bots still fill it in. */
   .signup-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
   .signup-turnstile:empty { display: none; }
   .signup .get-it-btn { margin-top: 4px; justify-self: start; border: 0; font-family: inherit; cursor: pointer; }
@@ -1022,7 +1021,6 @@
       <label for="su-message">Question or idea <span>(optional)</span></label>
       <textarea id="su-message" name="message" rows="3" maxlength="2000"></textarea>
 
-      <!-- Honeypot: people never see this field; bots fill it in. -->
       <div class="signup-hp" aria-hidden="true">
         <label for="su-website">Leave this empty</label>
         <input id="su-website" name="website" type="text" tabindex="-1" autocomplete="off">
