@@ -1,0 +1,18 @@
+# ANotes
+
+> ANotes is a voice notes app. It turns speech into text on the phone itself, with no internet and no account. Notes and recordings stay on the phone, as plain Markdown.
+
+- Platform: Android. Google Play first, then iPhone.
+- Price: free. A paid version with extra looks (skins) is planned. Speech models are always free.
+- Works offline: once a model is downloaded, dictation, reading aloud, storage and search work in airplane mode.
+- Dictation languages: English, Russian and others; each model lists the languages it understands.
+- Every recording stays on its note: play it, share it, or transcribe it again.
+- Reads notes aloud with the phone's own voice, and keeps the place.
+- No account, no sync, no analytics, no ads.
+- In testing, not in the public app yet: AI features that run on the phone (tidy a dictation, make a checklist, sum up or translate a note).
+
+## Pages
+- [Home](https://getanotes.com/): what ANotes does, and common questions
+- [What's new](https://getanotes.com/changelog.html): weekly updates
+- [Privacy policy](https://getanotes.com/privacy/)
+- [Terms](https://getanotes.com/terms/)

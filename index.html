@@ -1,10 +1,118 @@
-<title>ANotes</title>
+<html lang="en">
+<title>ANotes: offline voice notes</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- What this page may load or talk to. connect-src is the only place the signup
      form may send data; if the endpoint in form.js ever moves, change it here too. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://n8n.anotes.tech; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="no-referrer">
+<meta name="description" content="ANotes turns your voice into text on the phone itself, with no internet and no account. Notes and recordings stay on your phone, as plain Markdown.">
+<link rel="canonical" href="https://getanotes.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ANotes">
+<meta property="og:title" content="ANotes: offline voice notes">
+<meta property="og:description" content="Speak, and ANotes writes it down on your phone. No internet, no account.">
+<meta property="og:url" content="https://getanotes.com/">
+<meta property="og:image" content="https://getanotes.com/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ANotes: everything stays on your phone.">
+<meta name="twitter:card" content="summary_large_image">
+<!-- What the app is, for search engines; the questions are the ones on this page, word for word. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "MobileApplication",
+ "name": "ANotes",
+ "alternateName": "ANotes: offline voice notes",
+ "url": "https://getanotes.com/",
+ "description": "ANotes turns your voice into text on the phone itself, with no internet and no account. Notes and recordings stay on your phone, as plain Markdown.",
+ "operatingSystem": "Android",
+ "applicationCategory": "ProductivityApplication",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "ANotes",
+  "url": "https://getanotes.com/"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What leaves my phone?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Only downloads. The voice models you choose are downloaded once, from Hugging Face or GitHub, which see your IP address as with any download. Your notes, recordings and transcripts never leave the phone unless you share them yourself. There is no account, no sync and no analytics. The details are in the privacy policy."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it work offline?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Once a model is downloaded, dictation, reading aloud, storage and search all work with no connection, even in airplane mode."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which phones does it run on?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Android first; iOS later. The AI features now in testing need Android 11 or newer and a recent mid-range phone or better. On first start, ANotes tests your phone and recommends what runs well on it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is it free?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, the app will be free. A paid full version is planned, with extra looks such as skins and markers."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which languages can I dictate in?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Pick dictation and read-aloud models from the built-in library, including English and Russian. Each model lists the languages it understands. You download only the ones you need."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where does the AI come from?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The AI features, now in testing, use open models that run on the phone itself. Like the voice models, they are downloaded once and then work offline. Your notes are never sent to an AI service."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How is it different from other voice-note apps?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Most voice-note and transcription apps send your voice to a server and need an account. ANotes turns speech into text on the phone, needs no account, and keeps notes as plain Markdown, which you can take anywhere."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I report a problem?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Use the form below. In the app, open Help and support from the avatar menu."
+   }
+  }
+ ]
+}
+</script>
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
